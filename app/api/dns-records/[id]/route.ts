@@ -13,9 +13,10 @@ const updateDnsRecordSchema = z.object({
   priority: z.number().int().min(0).max(65535).optional(),
 });
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) {
   try {
-    const cookieStore = cookies();
+    const params = await context.params;
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -46,12 +47,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     const body = await request.json();
     const result = updateDnsRecordSchema.safeParse(body);
 
-    if (!result.success) {
-      return NextResponse.json(
-        { error: { code: "VALIDATION_ERROR", message: result.error.errors[0].message } },
-        { status: 400 }
-      );
-    }
+      if (!result.success) {
+        return NextResponse.json(
+          { error: { code: "VALIDATION_ERROR", message: "Invalid payload" } },
+          { status: 400 }
+        );
+      }
     
     const { data: currentRecord, error: getError } = await supabase
       .from("dns_records")
@@ -67,10 +68,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     }
     
     if (currentRecord.cloudflare_id && (result.data.type || result.data.value || result.data.ttl || result.data.name)) {
-        const cfClient = new CloudflareClient(
-          process.env.CLOUDFLARE_API_TOKEN!,
-          process.env.CLOUDFLARE_ZONE_ID!
-        );
+        const cfClient = new CloudflareClient();
         
         const type = result.data.type || currentRecord.type;
         const namePart = result.data.name || currentRecord.name;
@@ -80,7 +78,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         const fullRecordName = namePart === '@' ? currentRecord.subdomains.name : `${namePart}.${currentRecord.subdomains.name}`;
         
         try {
-            await cfClient.updateDnsRecord(currentRecord.cloudflare_id, fullRecordName, type, value, ttl);
+            await cfClient.updateDnsRecord(currentRecord.cloudflare_id, {
+                type,
+                name: fullRecordName,
+                content: value,
+                ttl
+            });
         } catch (err) {
              console.error("Cloudflare error", err);
              return NextResponse.json(
@@ -104,17 +107,19 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     await logActivity(supabase, user.id, "dns_updated", { record_id: data.id, record_type: data.type });
 
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, context: { params: Promise<{ id: string }> }) {
   try {
-    const cookieStore = cookies();
+    const params = await context.params;
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -156,10 +161,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     }
     
     if (currentRecord.cloudflare_id) {
-        const cfClient = new CloudflareClient(
-          process.env.CLOUDFLARE_API_TOKEN!,
-          process.env.CLOUDFLARE_ZONE_ID!
-        );
+        const cfClient = new CloudflareClient();
         try {
             await cfClient.deleteDnsRecord(currentRecord.cloudflare_id);
         } catch (err) {
@@ -179,9 +181,10 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     await logActivity(supabase, user.id, "dns_deleted", { record_type: currentRecord.type, record_name: currentRecord.name });
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }

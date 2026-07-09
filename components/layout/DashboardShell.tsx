@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect, useCallback, type ReactNode } from "react";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface DashboardShellProps {
   sidebar: ReactNode;
   children: ReactNode;
   title?: string;
+  subtitle?: string;
   className?: string;
 }
 
@@ -15,6 +16,7 @@ export function DashboardShell({
   sidebar,
   children,
   title,
+  subtitle,
   className,
 }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -77,7 +79,7 @@ export function DashboardShell({
           <button
             type="button"
             onClick={close}
-            className="flex items-center justify-center w-8 h-8 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent"
+            className="flex items-center justify-center w-11 h-11 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent"
             aria-label="Tutup sidebar"
           >
             <X size={18} />
@@ -92,26 +94,29 @@ export function DashboardShell({
           className
         )}
       >
-        <div className="flex items-center justify-between mb-6 xl900:hidden">
-          <h1 className="font-display font-bold text-xl text-fg">
-            {title ?? "Dashboard"}
-          </h1>
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="font-display font-bold text-xl text-fg mb-1">
+              {title ?? "Dashboard"}
+            </h1>
+            {subtitle && (
+              <p className="text-sm text-muted">
+                {subtitle}
+              </p>
+            )}
+          </div>
           <button
             type="button"
             onClick={toggle}
-            className="flex items-center justify-center w-8 h-8 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent shrink-0"
+            className="xl900:hidden flex flex-col justify-center gap-[4px] w-11 h-11 p-2 bg-none border border-border rounded-4 cursor-pointer transition-colors duration-200 hover:border-accent shrink-0"
             aria-label={sidebarOpen ? "Tutup sidebar" : "Buka sidebar"}
             aria-expanded={sidebarOpen}
           >
-            {sidebarOpen ? <X size={18} /> : <Menu size={18} />}
+            <span className="block w-full h-[2px] bg-fg rounded-[1px]"></span>
+            <span className="block w-full h-[2px] bg-fg rounded-[1px]"></span>
+            <span className="block w-full h-[2px] bg-fg rounded-[1px]"></span>
           </button>
         </div>
-
-        {title && (
-          <h1 className="hidden xl900:block font-display font-bold text-xl text-fg mb-6">
-            {title}
-          </h1>
-        )}
 
         {children}
       </main>

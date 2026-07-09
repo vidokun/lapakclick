@@ -11,16 +11,16 @@ export interface TableColumn {
   sortable?: boolean;
 }
 
-export interface TableProps {
+export interface TableProps<T extends Record<string, unknown>> {
   columns: TableColumn[];
-  data: Record<string, any>[];
+  data: T[];
   loading?: boolean;
   emptyMessage?: string;
   sortKey?: string;
   sortDir?: "asc" | "desc";
   onSort?: (key: string) => void;
   className?: string;
-  renderRow?: (row: Record<string, any>, index: number) => ReactNode;
+  renderRow?: (row: T, index: number) => ReactNode;
 }
 
 function SkeletonRow({ cols }: { cols: number }) {
@@ -35,7 +35,7 @@ function SkeletonRow({ cols }: { cols: number }) {
   );
 }
 
-export function Table({
+export function Table<T extends Record<string, unknown>>({
   columns,
   data,
   loading = false,
@@ -45,7 +45,7 @@ export function Table({
   onSort,
   className,
   renderRow,
-}: TableProps) {
+}: TableProps<T>) {
   return (
     <div className="overflow-x-auto rounded-4 border border-border bg-surface">
       <table className={cn("w-full border-collapse", className)}>
@@ -124,7 +124,7 @@ export function Table({
 
               return (
                 <tr
-                  key={row.id ?? i}
+                  key={(row.id as React.Key) ?? i}
                   className="transition-colors hover:bg-surface-2"
                 >
                   {columns.map((col) => (
@@ -132,7 +132,7 @@ export function Table({
                       key={col.key}
                       className="px-4 py-3 text-sm text-fg border-b border-border last:border-b-0"
                     >
-                      {row[col.key] ?? "—"}
+                      {(row[col.key] as ReactNode) ?? "—"}
                     </td>
                   ))}
                 </tr>

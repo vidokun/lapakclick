@@ -23,7 +23,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: { code: "VALIDATION_ERROR", message: "subdomain_id is required" } }, { status: 400 });
     }
 
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -73,9 +73,10 @@ export async function GET(request: Request) {
     }
 
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }
@@ -83,7 +84,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -114,12 +115,12 @@ export async function POST(request: Request) {
     const body = await request.json();
     const result = createDnsRecordSchema.safeParse(body);
 
-    if (!result.success) {
-      return NextResponse.json(
-        { error: { code: "VALIDATION_ERROR", message: result.error.errors[0].message } },
-        { status: 400 }
-      );
-    }
+      if (!result.success) {
+        return NextResponse.json(
+          { error: { code: "VALIDATION_ERROR", message: "Invalid payload" } },
+          { status: 400 }
+        );
+      }
 
     const { subdomain_id, type, name, value, ttl, priority } = result.data;
 
@@ -134,18 +135,20 @@ export async function POST(request: Request) {
        return NextResponse.json({ error: { code: "FORBIDDEN", message: "Akses ditolak" } }, { status: 403 });
     }
     
-    const cfClient = new CloudflareClient(
-      process.env.CLOUDFLARE_API_TOKEN!,
-      process.env.CLOUDFLARE_ZONE_ID!
-    );
+    const cfClient = new CloudflareClient();
     
     let cloudflare_id = null;
     
     try {
        const fullRecordName = name === '@' ? subdomain.name : `${name}.${subdomain.name}`;
-       const cfResult = await cfClient.createDnsRecord(fullRecordName, type, value, ttl);
-       if(cfResult.success && cfResult.result) {
-         cloudflare_id = cfResult.result.id;
+        const cfResult = await cfClient.createDnsRecord({
+          type,
+          name: fullRecordName,
+          content: value,
+          ttl
+        });
+        if(cfResult) {
+         cloudflare_id = cfResult.id;
        }
     } catch(err) {
        console.error("Cloudflare error", err);
@@ -179,9 +182,10 @@ export async function POST(request: Request) {
     await logActivity(supabase, user.id, "dns_added", { subdomain_id, record_type: type, record_name: name });
 
     return NextResponse.json(data, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }

@@ -8,9 +8,10 @@ const updateSubdomainSchema = z.object({
   target: z.string().optional(),
 });
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, context: { params: Promise<{ id: string }> }) {
   try {
-    const cookieStore = cookies();
+    const params = await context.params;
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -53,17 +54,19 @@ export async function GET(request: Request, { params }: { params: { id: string }
     }
 
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }
 }
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) {
   try {
-    const cookieStore = cookies();
+    const params = await context.params;
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -94,12 +97,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     const body = await request.json();
     const result = updateSubdomainSchema.safeParse(body);
 
-    if (!result.success) {
-      return NextResponse.json(
-        { error: { code: "VALIDATION_ERROR", message: result.error.errors[0].message } },
-        { status: 400 }
-      );
-    }
+      if (!result.success) {
+        return NextResponse.json(
+          { error: { code: "VALIDATION_ERROR", message: "Invalid payload" } },
+          { status: 400 }
+        );
+      }
 
     const { target } = result.data;
 
@@ -121,17 +124,19 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     await logActivity(supabase, user.id, "subdomain_updated", { subdomain_id: data.id, name: data.name });
 
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, context: { params: Promise<{ id: string }> }) {
   try {
-    const cookieStore = cookies();
+    const params = await context.params;
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -186,9 +191,10 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     await logActivity(supabase, user.id, "subdomain_deleted", { subdomain_id: subdomain.id, name: subdomain.name });
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: error.message || "Internal server error" } },
+      { error: { code: "INTERNAL_ERROR", message } },
       { status: 500 }
     );
   }

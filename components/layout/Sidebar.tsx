@@ -19,11 +19,11 @@ export interface SidebarProps {
 }
 
 const navItems = [
-  { id: "overview", label: "Overview", icon: LayoutDashboard, href: "/dashboard" },
+  { id: "overview", label: "Overview", icon: LayoutDashboard, href: "/dashboard/overview" },
   { id: "subdomain", label: "Subdomain", icon: Globe, href: "/dashboard/subdomain" },
-  { id: "claim", label: "Claim", icon: PlusCircle, href: "/dashboard/claim" },
+  { id: "claim", label: "Claim", icon: PlusCircle, href: "/dashboard/subdomain/claim" },
   { id: "dns", label: "DNS", icon: Settings2, href: "/dashboard/dns" },
-  { id: "pengaturan", label: "Pengaturan", icon: User, href: "/dashboard/pengaturan" },
+  { id: "pengaturan", label: "Pengaturan", icon: User, href: "/dashboard/settings" },
 ];
 
 export function Sidebar({

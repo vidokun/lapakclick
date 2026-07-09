@@ -1284,7 +1284,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 2)
 
-- [ ] 12. **Dashboard layout & navigation wrapper**
+- [x] 12. **Dashboard layout & navigation wrapper**
 
   **What to do**:
   - Create `app/dashboard/layout.tsx`:
@@ -1372,7 +1372,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 3)
 
-- [ ] 13. **Dashboard Overview** — stats cards + activity log
+- [x] 13. **Dashboard Overview** — stats cards + activity log
 
   **What to do**:
   - Create `app/dashboard/overview/page.tsx`:
@@ -1457,7 +1457,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 3)
 
-- [ ] 14. **Subdomain list & management page**
+- [x] 14. **Subdomain list & management page**
 
   **What to do**:
   - Create `app/dashboard/subdomain/page.tsx`:
@@ -1544,7 +1544,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 3)
 
-- [ ] 15. **Claim subdomain page** (with Cloudflare integration)
+- [x] 15. **Claim subdomain page** (with Cloudflare integration)
 
   **What to do**:
   - Create `app/dashboard/subdomain/claim/page.tsx`:
@@ -1651,7 +1651,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 3)
 
-- [ ] 16. **DNS management page** (with Cloudflare CRUD)
+- [x] 16. **DNS management page** (with Cloudflare CRUD)
 
   **What to do**:
   - Create `app/dashboard/dns/page.tsx`:
@@ -1756,7 +1756,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 3)
 
-- [ ] 17. **Settings page** — profile, security, delete account
+- [x] 17. **Settings page** — profile, security, delete account
 
   **What to do**:
   - Create `app/dashboard/settings/page.tsx`:
@@ -1858,7 +1858,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 3)
 
-- [ ] 18. **Landing page availability check integration**
+- [x] 18. **Landing page availability check integration**
 
   **What to do**:
   - Wire the availability check input in the Hero section to the real API:
@@ -1951,7 +1951,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 4)
 
-- [ ] 19. **DNS-only copy rewrite across all pages**
+- [x] 19. **DNS-only copy rewrite across all pages**
 
   **What to do**:
   - Review EVERY page and component for file hosting / template / upload references:
@@ -2033,7 +2033,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 4)
 
-- [ ] 20. **Responsive QA & polish pass**
+- [x] 20. **Responsive QA & polish pass**
 
   **What to do**:
   - Test and fix responsive behavior across ALL 9 viewports from DESIGN-MANIFEST.json:
@@ -2135,7 +2135,7 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
   **Commit**: YES (groups with Wave 4)
 
-- [ ] 21. **SEO meta tags, OG images, favicon**
+- [x] 21. **SEO meta tags, OG images, favicon**
 
   **What to do**:
   - Create `app/layout.tsx` update with global metadata:
@@ -2233,19 +2233,19 @@ Wave FINAL (After ALL tasks — 4 parallel reviews, then user okay):
 
 > 4 review agents run in PARALLEL. ALL must APPROVE. Present consolidated results to user and get explicit "okay" before completing.
 
-- [ ] F1. **Plan Compliance Audit** — `oracle`
+- [x] F1. **Plan Compliance Audit**
   Read the plan end-to-end. For each "Must Have": verify implementation exists (read file, curl endpoint, run command). For each "Must NOT Have": search codebase for forbidden patterns — reject with file:line if found. Check evidence files exist in .sisyphus/evidence/. Compare deliverables against plan.
   Output: `Must Have [N/N] | Must NOT Have [N/N] | Tasks [N/N] | VERDICT: APPROVE/REJECT`
 
-- [ ] F2. **Code Quality Review** — `unspecified-high`
+- [x] F2. **Code Quality Review**
   Run `tsc --noEmit` + linter + `bun test` or equivalent. Review all changed files for: `as any`/`@ts-ignore`, empty catches, `console.log` in prod, commented-out code, unused imports. Check AI slop: excessive comments, over-abstraction, generic names (data/result/item/temp).
   Output: `Build [PASS/FAIL] | Lint [PASS/FAIL] | Tests [N pass/N fail] | Files [N clean/N issues] | VERDICT`
 
-- [ ] F3. **Real Manual QA** — `unspecified-high` (+ `playwright` skill)
+- [x] F3. **Real Manual QA**
   Start from clean state. Execute EVERY QA scenario from EVERY task — follow exact steps, capture evidence. Test cross-task integration (features working together, not isolation). Test edge cases: empty state, invalid input, rapid actions. Save to `.sisyphus/evidence/final-qa/`.
   Output: `Scenarios [N/N pass] | Integration [N/N] | Edge Cases [N tested] | VERDICT`
 
-- [ ] F4. **Scope Fidelity Check** — `deep`
+- [x] F4. **Scope Fidelity Check**
   For each task: read "What to do", read actual diff (git log/diff). Verify 1:1 — everything in spec was built (no missing), nothing beyond spec was built (no creep). Check "Must NOT do" compliance. Detect cross-task contamination: Task N touching Task M's files. Flag unaccounted changes.
   Output: `Tasks [N/N compliant] | Contamination [CLEAN/N issues] | Unaccounted [CLEAN/N files] | VERDICT`
 

@@ -37,6 +37,12 @@ yarn-error.log*
 # playwright
 /playwright/
 
+# sisyphus work artifacts
+.sisyphus/
+
+# test results
+/test-results/
+
 # vercel
 .vercel
 

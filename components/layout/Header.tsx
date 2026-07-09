@@ -100,7 +100,7 @@ export function Header({ landing = true, className }: HeaderProps) {
           <button
             type="button"
             onClick={toggle}
-            className="md:hidden flex items-center justify-center ml-auto w-8 h-8 p-1 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent shrink-0"
+            className="md:hidden flex items-center justify-center ml-auto w-11 h-11 p-2 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent shrink-0"
             aria-label={open ? "Tutup menu" : "Buka menu"}
             aria-expanded={open}
           >
@@ -136,7 +136,7 @@ export function Header({ landing = true, className }: HeaderProps) {
           <button
             type="button"
             onClick={close}
-            className="flex items-center justify-center w-8 h-8 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent"
+            className="flex items-center justify-center w-11 h-11 bg-none border border-border rounded-4 text-fg-2 cursor-pointer transition-colors duration-200 hover:border-accent"
             aria-label="Tutup menu"
           >
             <X size={18} />

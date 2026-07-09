@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
         const createData = createDnsRecordSchema.parse(body);
         const cloudflareClient = new CloudflareClient();
         const newRecord = await cloudflareClient.createDnsRecord({
-          type: createData.type as any,
+          type: createData.type,
           name: createData.name === "@" ? fullDomainName : `${createData.name}.${fullDomainName}`,
           content: createData.value,
           ttl: createData.ttl,
@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
 
         const cloudflareClient = new CloudflareClient();
         const updatedRecord = await cloudflareClient.updateDnsRecord(existingRecord.cf_record_id, {
-          type: (updateData.type || existingRecord.type) as any,
+          type: (updateData.type || existingRecord.type),
           name: updateData.name ? (updateData.name === "@" ? fullDomainName : `${updateData.name}.${fullDomainName}`) : existingRecord.name,
           content: updateData.value || existingRecord.value,
           ttl: updateData.ttl || existingRecord.ttl,

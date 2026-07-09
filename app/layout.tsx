@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteMetadata } from "./metadata";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,11 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "lapak.click — Subdomain Gratis untuk UMKM",
-  description:
-    "Dapatkan subdomain namausaha.lapak.click gratis untuk UMKM Indonesia. Cepat, mudah, dan gratis selamanya.",
-};
+export const metadata: Metadata = siteMetadata;
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#4f46e5',
+}
 
 export default function RootLayout({
   children,
@@ -25,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       style={{ "--font-display": "'Cabinet Grotesk', system-ui, sans-serif" } as React.CSSProperties}
     >

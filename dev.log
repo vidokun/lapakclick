@@ -1,0 +1,2357 @@
+
+> lapakclick@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.100:3000
+✓ Ready in 167ms
+
+ GET / 200 in 1050ms (next.js: 942ms, application-code: 107ms)
+ GET / 200 in 38ms (next.js: 1268µs, application-code: 37ms)
+✓ Compiled in 15ms
+ GET / 200 in 40ms (next.js: 1995µs, application-code: 38ms)
+ GET / 200 in 87ms (next.js: 30ms, application-code: 57ms)
+ GET / 200 in 38ms (next.js: 2ms, application-code: 36ms)
+ GET / 200 in 15ms (next.js: 1365µs, application-code: 14ms)
+✓ Compiled in 17ms
+✓ Compiled in 17ms
+ GET / 200 in 305ms (next.js: 26ms, application-code: 280ms)
+ GET / 200 in 208ms (next.js: 21ms, application-code: 187ms)
+ GET / 200 in 212ms (next.js: 2ms, application-code: 210ms)
+ GET / 200 in 213ms (next.js: 12ms, application-code: 200ms)
+ GET / 200 in 215ms (next.js: 31ms, application-code: 183ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 171ms (next.js: 3ms, application-code: 168ms)
+ GET / 200 in 176ms (next.js: 37ms, application-code: 139ms)
+ GET / 200 in 110ms (next.js: 5ms, application-code: 105ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 48ms (next.js: 2ms, application-code: 46ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:29:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 226ms (next.js: 118ms, application-code: 109ms)
+ GET /login 200 in 294ms (next.js: 194ms, application-code: 101ms)
+ GET /login 200 in 295ms (next.js: 200ms, application-code: 95ms)
+ GET /login 200 in 474ms (next.js: 383ms, application-code: 91ms)
+✓ Compiled in 283ms
+ GET / 200 in 277ms (next.js: 29ms, application-code: 248ms)
+ GET / 200 in 186ms (next.js: 1972µs, application-code: 184ms)
+ GET / 200 in 187ms (next.js: 22ms, application-code: 165ms)
+ GET / 200 in 187ms (next.js: 13ms, application-code: 174ms)
+ GET / 200 in 193ms (next.js: 31ms, application-code: 161ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 169ms (next.js: 2ms, application-code: 167ms)
+ GET / 200 in 169ms (next.js: 17ms, application-code: 153ms)
+ GET / 200 in 176ms (next.js: 64ms, application-code: 111ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 96ms (next.js: 10ms, application-code: 86ms)
+ GET / 200 in 155ms (next.js: 1339µs, application-code: 154ms)
+ GET /login 200 in 88ms (next.js: 4ms, application-code: 85ms)
+ GET /login 200 in 93ms (next.js: 22ms, application-code: 71ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 60ms (next.js: 4ms, application-code: 57ms)
+✓ Compiled in 36ms
+✓ Compiled in 15ms
+ GET / 200 in 225ms (next.js: 4ms, application-code: 220ms)
+ GET / 200 in 199ms (next.js: 13ms, application-code: 186ms)
+ GET / 200 in 200ms (next.js: 24ms, application-code: 176ms)
+ GET / 200 in 200ms (next.js: 2ms, application-code: 198ms)
+ GET / 200 in 205ms (next.js: 34ms, application-code: 170ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 189ms (next.js: 3ms, application-code: 187ms)
+ GET / 200 in 145ms (next.js: 2ms, application-code: 142ms)
+ GET / 200 in 146ms (next.js: 28ms, application-code: 118ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 69ms (next.js: 5ms, application-code: 64ms)
+ GET / 200 in 131ms (next.js: 2ms, application-code: 129ms)
+ GET /login 200 in 96ms (next.js: 5ms, application-code: 92ms)
+ GET /login 200 in 80ms (next.js: 3ms, application-code: 76ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 38ms (next.js: 1838µs, application-code: 36ms)
+ GET /register 200 in 316ms (next.js: 203ms, application-code: 113ms)
+ GET /forgot-password 200 in 322ms (next.js: 221ms, application-code: 101ms)
+ GET /register 200 in 328ms (next.js: 235ms, application-code: 93ms)
+ GET /register 200 in 338ms (next.js: 252ms, application-code: 86ms)
+ GET /forgot-password 200 in 314ms (next.js: 264ms, application-code: 50ms)
+ GET /forgot-password 200 in 15ms (next.js: 893µs, application-code: 14ms)
+ GET /register 200 in 111ms (next.js: 1922µs, application-code: 109ms)
+ GET /forgot-password 200 in 94ms (next.js: 4ms, application-code: 90ms)
+ GET /register 200 in 95ms (next.js: 13ms, application-code: 83ms)
+ GET /register 200 in 70ms (next.js: 4ms, application-code: 66ms)
+ GET /forgot-password 200 in 59ms (next.js: 4ms, application-code: 54ms)
+ GET /forgot-password 200 in 161ms (next.js: 1307µs, application-code: 160ms)
+ GET / 200 in 173ms (next.js: 4ms, application-code: 169ms)
+ GET / 200 in 160ms (next.js: 1852µs, application-code: 158ms)
+ GET / 200 in 162ms (next.js: 22ms, application-code: 140ms)
+ GET / 200 in 149ms (next.js: 19ms, application-code: 129ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 102ms (next.js: 1036µs, application-code: 101ms)
+ GET / 200 in 77ms (next.js: 1991µs, application-code: 75ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 93ms (next.js: 1148µs, application-code: 91ms)
+ GET / 200 in 72ms (next.js: 1623µs, application-code: 70ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 68ms (next.js: 5ms, application-code: 63ms)
+ GET /login 200 in 61ms (next.js: 1499µs, application-code: 59ms)
+ GET / 200 in 149ms (next.js: 2ms, application-code: 147ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 18ms (next.js: 1203µs, application-code: 16ms)
+ GET /login 200 in 14ms (next.js: 1077µs, application-code: 13ms)
+ GET /forgot-password 200 in 130ms (next.js: 3ms, application-code: 127ms)
+ GET /register 200 in 101ms (next.js: 5ms, application-code: 96ms)
+ GET /forgot-password 200 in 100ms (next.js: 14ms, application-code: 86ms)
+ GET /register 200 in 101ms (next.js: 31ms, application-code: 70ms)
+ GET /register 200 in 59ms (next.js: 3ms, application-code: 56ms)
+ GET /forgot-password 200 in 162ms (next.js: 2ms, application-code: 160ms)
+ GET / 200 in 191ms (next.js: 5ms, application-code: 187ms)
+ GET / 200 in 193ms (next.js: 29ms, application-code: 164ms)
+ GET / 200 in 172ms (next.js: 23ms, application-code: 149ms)
+ GET / 200 in 136ms (next.js: 2ms, application-code: 134ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 122ms (next.js: 5ms, application-code: 117ms)
+ GET / 200 in 89ms (next.js: 2ms, application-code: 87ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 143ms (next.js: 1451µs, application-code: 142ms)
+ GET / 200 in 112ms (next.js: 1488µs, application-code: 110ms)
+ GET / 200 in 115ms (next.js: 28ms, application-code: 88ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 109ms (next.js: 3ms, application-code: 106ms)
+ GET /login 200 in 111ms (next.js: 26ms, application-code: 86ms)
+ GET /login 200 in 71ms (next.js: 3ms, application-code: 68ms)
+ GET /login 200 in 73ms (next.js: 16ms, application-code: 57ms)
+ GET /register 200 in 113ms (next.js: 2ms, application-code: 111ms)
+ GET /forgot-password 200 in 95ms (next.js: 3ms, application-code: 92ms)
+ GET /register 200 in 96ms (next.js: 12ms, application-code: 84ms)
+ GET /register 200 in 97ms (next.js: 18ms, application-code: 79ms)
+ GET /forgot-password 200 in 60ms (next.js: 9ms, application-code: 51ms)
+ GET /forgot-password 200 in 143ms (next.js: 2ms, application-code: 141ms)
+ GET / 200 in 189ms (next.js: 3ms, application-code: 186ms)
+ GET / 200 in 193ms (next.js: 26ms, application-code: 167ms)
+ GET / 200 in 171ms (next.js: 23ms, application-code: 148ms)
+ GET / 200 in 154ms (next.js: 26ms, application-code: 128ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 120ms (next.js: 1938µs, application-code: 118ms)
+ GET / 200 in 88ms (next.js: 3ms, application-code: 85ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 53ms (next.js: 812µs, application-code: 52ms)
+ GET / 200 in 80ms (next.js: 3ms, application-code: 77ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 103ms (next.js: 17ms, application-code: 86ms)
+ GET /login 200 in 56ms (next.js: 4ms, application-code: 52ms)
+ GET / 200 in 139ms (next.js: 1632µs, application-code: 137ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 17ms (next.js: 1344µs, application-code: 15ms)
+ GET /login 200 in 19ms (next.js: 1279µs, application-code: 18ms)
+ GET / 200 in 36ms (next.js: 921µs, application-code: 35ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /register 200 in 64ms (next.js: 923µs, application-code: 63ms)
+ GET /register 200 in 53ms (next.js: 9ms, application-code: 45ms)
+ GET /register 200 in 54ms (next.js: 1972µs, application-code: 52ms)
+ GET /forgot-password 200 in 58ms (next.js: 986µs, application-code: 57ms)
+ GET /forgot-password 200 in 50ms (next.js: 1470µs, application-code: 48ms)
+ GET /forgot-password 200 in 51ms (next.js: 14ms, application-code: 36ms)
+ GET / 200 in 113ms (next.js: 959µs, application-code: 112ms)
+ GET / 200 in 94ms (next.js: 3ms, application-code: 92ms)
+ GET / 200 in 97ms (next.js: 20ms, application-code: 77ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 44ms (next.js: 651µs, application-code: 43ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 31ms (next.js: 982µs, application-code: 30ms)
+ GET / 200 in 41ms (next.js: 1070µs, application-code: 40ms)
+ GET / 200 in 52ms (next.js: 1377µs, application-code: 51ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 28ms (next.js: 1119µs, application-code: 27ms)
+ GET / 200 in 29ms (next.js: 1064µs, application-code: 28ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 15ms (next.js: 2ms, application-code: 13ms)
+ GET /login 200 in 18ms (next.js: 4ms, application-code: 14ms)
+ GET /login 200 in 28ms (next.js: 1084µs, application-code: 27ms)
+ GET /login 200 in 15ms (next.js: 1164µs, application-code: 14ms)
+ GET /register 200 in 92ms (next.js: 1843µs, application-code: 90ms)
+ GET /forgot-password 200 in 78ms (next.js: 10ms, application-code: 68ms)
+ GET /register 200 in 79ms (next.js: 3ms, application-code: 76ms)
+ GET /register 200 in 63ms (next.js: 5ms, application-code: 58ms)
+ GET /forgot-password 200 in 100ms (next.js: 1727µs, application-code: 98ms)
+ GET /forgot-password 200 in 92ms (next.js: 1515µs, application-code: 91ms)
+ GET / 200 in 136ms (next.js: 15ms, application-code: 120ms)
+ GET / 200 in 128ms (next.js: 27ms, application-code: 101ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 38ms (next.js: 1446µs, application-code: 37ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 105ms (next.js: 1225µs, application-code: 104ms)
+ GET / 200 in 76ms (next.js: 1877µs, application-code: 74ms)
+ GET / 200 in 81ms (next.js: 2ms, application-code: 79ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 56ms (next.js: 1570µs, application-code: 54ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 43ms (next.js: 1397µs, application-code: 41ms)
+ GET / 200 in 42ms (next.js: 1083µs, application-code: 40ms)
+ GET /login 200 in 30ms (next.js: 2ms, application-code: 27ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 16ms (next.js: 1132µs, application-code: 15ms)
+ GET /login 200 in 16ms (next.js: 1095µs, application-code: 15ms)
+ GET /login 200 in 17ms (next.js: 1413µs, application-code: 16ms)
+ GET /register 200 in 98ms (next.js: 2ms, application-code: 96ms)
+ GET /register 200 in 81ms (next.js: 10ms, application-code: 71ms)
+ GET /forgot-password 200 in 82ms (next.js: 4ms, application-code: 78ms)
+ GET /register 200 in 85ms (next.js: 26ms, application-code: 59ms)
+ GET /forgot-password 200 in 109ms (next.js: 3ms, application-code: 107ms)
+ GET /forgot-password 200 in 92ms (next.js: 2ms, application-code: 90ms)
+ GET / 200 in 136ms (next.js: 17ms, application-code: 119ms)
+ GET / 200 in 127ms (next.js: 26ms, application-code: 102ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 44ms (next.js: 1114µs, application-code: 43ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 144ms (next.js: 1651µs, application-code: 142ms)
+ GET / 200 in 107ms (next.js: 1137µs, application-code: 106ms)
+ GET / 200 in 87ms (next.js: 3ms, application-code: 84ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 51ms (next.js: 687µs, application-code: 51ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 37ms (next.js: 1241µs, application-code: 35ms)
+ GET / 200 in 43ms (next.js: 1414µs, application-code: 42ms)
+ GET /login 200 in 33ms (next.js: 2ms, application-code: 31ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 16ms (next.js: 1169µs, application-code: 15ms)
+ GET /login 200 in 17ms (next.js: 1206µs, application-code: 15ms)
+ GET /login 200 in 15ms (next.js: 1242µs, application-code: 14ms)
+ GET /register 200 in 97ms (next.js: 3ms, application-code: 95ms)
+ GET /register 200 in 83ms (next.js: 3ms, application-code: 80ms)
+ GET /register 200 in 83ms (next.js: 10ms, application-code: 73ms)
+ GET /forgot-password 200 in 63ms (next.js: 4ms, application-code: 59ms)
+ GET /forgot-password 200 in 119ms (next.js: 1837µs, application-code: 117ms)
+ GET /forgot-password 200 in 93ms (next.js: 1377µs, application-code: 92ms)
+ GET / 200 in 138ms (next.js: 14ms, application-code: 125ms)
+ GET / 200 in 108ms (next.js: 3ms, application-code: 105ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 38ms (next.js: 3ms, application-code: 35ms)
+ GET / 200 in 96ms (next.js: 1454µs, application-code: 95ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 16ms (next.js: 1067µs, application-code: 15ms)
+ GET /login 200 in 39ms (next.js: 1149µs, application-code: 38ms)
+ GET /login 200 in 17ms (next.js: 1232µs, application-code: 16ms)
+ GET / 200 in 28ms (next.js: 1065µs, application-code: 27ms)
+ GET / 200 in 34ms (next.js: 740µs, application-code: 33ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 35ms (next.js: 747µs, application-code: 34ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 35ms (next.js: 926µs, application-code: 34ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 28ms (next.js: 844µs, application-code: 27ms)
+ GET /register 200 in 90ms (next.js: 4ms, application-code: 86ms)
+ GET /register 200 in 73ms (next.js: 3ms, application-code: 70ms)
+ GET /register 200 in 73ms (next.js: 10ms, application-code: 63ms)
+ GET /forgot-password 200 in 50ms (next.js: 3ms, application-code: 47ms)
+ GET /forgot-password 200 in 105ms (next.js: 1058µs, application-code: 104ms)
+ GET /forgot-password 200 in 95ms (next.js: 27ms, application-code: 68ms)
+ GET / 200 in 135ms (next.js: 1788µs, application-code: 133ms)
+ GET / 200 in 118ms (next.js: 13ms, application-code: 105ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 33ms (next.js: 3ms, application-code: 29ms)
+ GET / 200 in 84ms (next.js: 1272µs, application-code: 83ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 44ms (next.js: 1583µs, application-code: 42ms)
+ GET /login 200 in 31ms (next.js: 1548µs, application-code: 29ms)
+ GET /login 200 in 23ms (next.js: 682µs, application-code: 23ms)
+ GET /register 200 in 187ms (next.js: 7ms, application-code: 179ms)
+ GET /login 200 in 145ms (next.js: 4ms, application-code: 141ms)
+ GET / 200 in 215ms (next.js: 36ms, application-code: 179ms)
+ GET / 200 in 216ms (next.js: 24ms, application-code: 192ms)
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /dashboard 500 in 627ms (next.js: 522ms, application-code: 106ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 104ms (next.js: 1005µs, application-code: 103ms)
+ GET / 200 in 72ms (next.js: 1983µs, application-code: 70ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /register 200 in 148ms (next.js: 1847µs, application-code: 146ms)
+ GET /login 200 in 110ms (next.js: 29ms, application-code: 82ms)
+ GET /dashboard 500 in 113ms (next.js: 3ms, application-code: 110ms)
+ GET / 200 in 192ms (next.js: 3ms, application-code: 189ms)
+ GET / 200 in 182ms (next.js: 35ms, application-code: 148ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 113ms (next.js: 3ms, application-code: 111ms)
+ GET / 200 in 77ms (next.js: 1078µs, application-code: 76ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /login 200 in 173ms (next.js: 2ms, application-code: 170ms)
+ GET /register 200 in 139ms (next.js: 31ms, application-code: 107ms)
+ GET /dashboard 500 in 142ms (next.js: 5ms, application-code: 137ms)
+ GET / 200 in 181ms (next.js: 17ms, application-code: 164ms)
+ GET / 200 in 120ms (next.js: 2ms, application-code: 117ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 94ms (next.js: 2ms, application-code: 92ms)
+ GET / 200 in 68ms (next.js: 1559µs, application-code: 66ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /login 200 in 161ms (next.js: 5ms, application-code: 157ms)
+ GET /register 200 in 135ms (next.js: 30ms, application-code: 105ms)
+ GET /dashboard 500 in 75ms (next.js: 9ms, application-code: 66ms)
+ GET / 200 in 181ms (next.js: 4ms, application-code: 176ms)
+ GET / 200 in 157ms (next.js: 17ms, application-code: 140ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 104ms (next.js: 2ms, application-code: 102ms)
+ GET / 200 in 67ms (next.js: 1989µs, application-code: 65ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /dashboard 500 in 148ms (next.js: 2ms, application-code: 145ms)
+ GET /login 200 in 101ms (next.js: 13ms, application-code: 88ms)
+ GET /register 200 in 105ms (next.js: 21ms, application-code: 84ms)
+ GET / 200 in 166ms (next.js: 3ms, application-code: 163ms)
+ GET / 200 in 171ms (next.js: 27ms, application-code: 144ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 82ms (next.js: 854µs, application-code: 81ms)
+ GET / 200 in 63ms (next.js: 1204µs, application-code: 61ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 37ms (next.js: 1338µs, application-code: 36ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 36ms (next.js: 773µs, application-code: 35ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 33ms (next.js: 727µs, application-code: 32ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 40ms (next.js: 907µs, application-code: 39ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 31ms (next.js: 2ms, application-code: 29ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 34ms (next.js: 728µs, application-code: 33ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 35ms (next.js: 3ms, application-code: 32ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET /login 200 in 20ms (next.js: 1419µs, application-code: 18ms)
+ GET /register 200 in 20ms (next.js: 1719µs, application-code: 18ms)
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /dashboard 500 in 28ms (next.js: 1441µs, application-code: 26ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught TypeError: Failed to execute 'measure' on 'Performance': '​DashboardPage' cannot have a negative time stamp.
+ GET / 200 in 32ms (next.js: 719µs, application-code: 32ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 34ms (next.js: 793µs, application-code: 33ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 43ms (next.js: 645µs, application-code: 43ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+ GET / 200 in 36ms (next.js: 912µs, application-code: 35ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /dashboard 500 in 38ms (next.js: 969µs, application-code: 37ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught TypeError: Failed to execute 'measure' on 'Performance': '​DashboardPage' cannot have a negative time stamp.
+ GET / 200 in 34ms (next.js: 709µs, application-code: 33ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at Hero.useEffect (components/landing/Hero.tsx:28:34)
+    at Home (app/page.tsx:14:9)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+⨯ Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   ); {
+  digest: '3058786990'
+}
+ GET /dashboard 500 in 29ms (next.js: 1612µs, application-code: 27ms)
+[browser] Uncaught Error: @supabase/ssr: Your project's URL and API key are required to create a Supabase client!
+
+Check your Supabase project's API settings to find these values
+
+https://supabase.com/dashboard/project/_/settings/api
+    at <unknown> (https://supabase.com/dashboard/project/_/settings/api)
+    at createClient (lib/supabase/client.ts:4:29)
+    at DashboardLayoutShell (app/dashboard/DashboardLayoutShell.tsx:15:32)
+    at DashboardLayout (app/dashboard/layout.tsx:17:5)
+  2 |
+  3 | export function createClient() {
+> 4 |   return createBrowserClient(
+    |                             ^
+  5 |     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  6 |     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  7 |   );
+[browser] Uncaught TypeError: Failed to execute 'measure' on 'Performance': '​DashboardPage' cannot have a negative time stamp.
+  Reload env: .env.local
+[?25h

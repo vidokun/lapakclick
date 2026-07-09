@@ -19,9 +19,9 @@ const steps = [
   },
   {
     number: "04",
-    title: "Selesai! Website Online",
+    title: "Selesai! Subdomain Siap Digunakan",
     description:
-      "Website kamu sudah live di namausaha.lapak.click. Bagikan link ke pelanggan dan mulai kembangkan usahamu!",
+      "Subdomain kamu sudah aktif dan terhubung dengan hostingmu. Website UMKM-mu siap go digital!",
   },
 ];
 

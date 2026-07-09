@@ -23,7 +23,12 @@
   --breakpoint-xl900: 900px;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
+  overflow-x: clip;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
