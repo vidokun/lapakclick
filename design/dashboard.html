@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — lapak.click</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1,2,3,4,5,6,7,8,9,10&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   lapak.click — Client Dashboard · Midnight Purple
+   Compact · Modern · Responsive
+   ============================================================ */
+
+/* --- Reset & base ---------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { overflow-x: clip; font-family: 'Geist', system-ui, sans-serif; background: oklch(10% 0.018 280); color: oklch(92% 0.008 280); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* --- Tokens (midnight purple) ---------------------------- */
+:root {
+  --bg:        oklch(10% 0.018 280);
+  --surface:   oklch(14% 0.022 280);
+  --surface-2: oklch(18% 0.025 280);
+  --fg:        oklch(92% 0.008 280);
+  --fg-2:      oklch(75% 0.010 280);
+  --muted:     oklch(55% 0.015 280);
+  --border:    oklch(22% 0.025 280);
+  --accent:    oklch(68% 0.18 285);
+  --accent-dim: oklch(55% 0.14 285);
+  --accent-gl: oklch(78% 0.20 290);
+  --positive:  oklch(65% 0.18 150);
+  --negative:  oklch(60% 0.18 25);
+  --warning:   oklch(70% 0.18 80);
+
+  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-body:    'Geist', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  0.75rem;
+  --space-lg:  1rem;
+  --space-xl:  1.5rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --radius:   4px;
+  --radius-lg: 8px;
+
+  --sidebar-w: 220px;
+}
+
+/* --- Typography ------------------------------------------ */
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(1.3rem, 2vw + 0.3rem, 1.6rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.1rem, 1.8vw + 0.3rem, 1.3rem); letter-spacing: -0.025em; }
+h3 { font-size: clamp(0.95rem, 1.2vw + 0.3rem, 1.05rem); letter-spacing: -0.02em; }
+p { color: var(--fg-2); font-size: 0.85rem; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-gl); text-decoration: none; }
+.text-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.text-sm { font-size: 0.75rem; }
+
+/* --- Layout ---------------------------------------------- */
+.dashboard {
+  display: flex; min-height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0;
+  width: var(--sidebar-w); z-index: 50;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar__head {
+  display: flex; align-items: center; gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-lg);
+  border-bottom: 1px solid var(--border);
+}
+.sidebar__logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
+  color: var(--fg); white-space: nowrap;
+}
+.sidebar__logo span { color: var(--accent); }
+
+.sidebar__nav { flex: 1; padding: var(--space-sm) 0; display: flex; flex-direction: column; gap: 2px; }
+.sidebar__link {
+  display: flex; align-items: center; gap: var(--space-sm);
+  padding: 0.55rem var(--space-lg); margin: 0 var(--space-sm);
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 450;
+  color: var(--fg-2); border-radius: var(--radius);
+  transition: color 0.15s, background 0.15s; border: none; background: none;
+  cursor: pointer; text-align: left; width: calc(100% - var(--space-sm)*2);
+}
+.sidebar__link:hover { color: var(--fg); background: var(--surface-2); text-decoration: none; }
+.sidebar__link.active { color: var(--accent); background: color-mix(in oklch, var(--accent) 8%, transparent); }
+.sidebar__link svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.6; }
+.sidebar__link.active svg { opacity: 1; }
+
+.sidebar__user {
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: var(--space-sm);
+}
+.sidebar__avatar {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent-dim); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--bg);
+}
+.sidebar__user-info { flex: 1; min-width: 0; }
+.sidebar__user-name { font-size: 0.8rem; font-weight: 500; color: var(--fg); }
+.sidebar__user-role { font-size: 0.65rem; color: var(--muted); }
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main {
+  margin-left: var(--sidebar-w); flex: 1;
+  padding: var(--space-xl) var(--space-2xl);
+  min-height: 100vh;
+}
+
+.main__top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+.main__page-title h1 { margin-bottom: 2px; }
+.main__page-title p { font-size: 0.8rem; }
+
+/* Hamburger (mobile) */
+.main__hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 4px; width: 32px; height: 32px; padding: 4px;
+  background: none; border: 1px solid var(--border); border-radius: var(--radius);
+  cursor: pointer; transition: border-color 0.2s; flex-shrink: 0;
+}
+.main__hamburger:hover { border-color: var(--accent); }
+.main__hamburger span {
+  display: block; width: 100%; height: 2px; background: var(--fg);
+  border-radius: 1px;
+}
+
+/* --- Pages (tab content) --------------------------------- */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ============================================================
+   PAGE: BERANDA (Overview)
+   ============================================================ */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-sm); margin-bottom: var(--space-xl);
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: var(--space-lg);
+}
+.stat-card__label { font-size: 0.75rem; color: var(--muted); margin-bottom: var(--space-xs); }
+.stat-card__value {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
+  color: var(--fg); font-variant-numeric: tabular-nums;
+}
+.stat-card__change {
+  font-size: 0.7rem; margin-top: var(--space-xs);
+  display: inline-flex; align-items: center; gap: 2px;
+}
+.stat-card__change.up { color: var(--positive); }
+.stat-card__change.down { color: var(--negative); }
+
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+.section-head h2 { margin: 0; }
+
+.activity-list { display: flex; flex-direction: column; gap: var(--space-xs); }
+.activity-item {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.activity-item__icon {
+  width: 32px; height: 32px; border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 0.8rem;
+}
+.activity-item__icon.claim { background: color-mix(in oklch, var(--positive) 12%, transparent); color: var(--positive); }
+.activity-item__icon.dns { background: color-mix(in oklch, var(--accent) 12%, transparent); color: var(--accent); }
+.activity-item__icon.warn { background: color-mix(in oklch, var(--warning) 12%, transparent); color: var(--warning); }
+.activity-item__body { flex: 1; min-width: 0; }
+.activity-item__title { font-size: 0.85rem; font-weight: 500; }
+.activity-item__meta { font-size: 0.7rem; color: var(--muted); margin-top: 1px; }
+.activity-item__time { font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
+
+/* ============================================================
+   PAGE: SUBDOMAIN SAYA
+   ============================================================ */
+.subdomain-controls {
+  display: flex; align-items: center; gap: var(--space-sm);
+  margin-bottom: var(--space-md); flex-wrap: wrap;
+}
+.subdomain-search {
+  flex: 1; min-width: 200px;
+  display: flex; align-items: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.subdomain-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 12%, transparent); }
+.subdomain-search input {
+  flex: 1; font-family: var(--font-body); font-size: 0.85rem;
+  padding: 0.55rem 0.8rem; background: transparent; border: none;
+  color: var(--fg); outline: none;
+}
+.subdomain-search input::placeholder { color: var(--muted); }
+
+.status-filter {
+  display: flex; gap: 2px;
+}
+.status-filter__btn {
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+  padding: 0.4rem 0.7rem; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); border-radius: var(--radius);
+  cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.status-filter__btn:hover { border-color: var(--accent-dim); color: var(--fg-2); }
+.status-filter__btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+.domain-table-wrap {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.domain-table { width: 100%; border-collapse: collapse; }
+.domain-table th {
+  font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted); padding: var(--space-sm) var(--space-lg);
+  text-align: left; border-bottom: 1px solid var(--border); font-weight: 500;
+}
+.domain-table td {
+  padding: var(--space-md) var(--space-lg); font-size: 0.85rem;
+  border-bottom: 1px solid var(--border); vertical-align: middle;
+}
+.domain-table tr:last-child td { border-bottom: none; }
+.domain-table tr:hover td { background: var(--surface-2); }
+
+.domain-name { font-family: var(--font-mono); font-weight: 500; color: var(--fg); }
+
+.status-badge {
+  display: inline-flex; font-family: var(--font-mono); font-size: 0.65rem;
+  font-weight: 500; padding: 2px 0.5rem; border-radius: var(--radius);
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.status-badge--active { background: color-mix(in oklch, var(--positive) 12%, transparent); color: var(--positive); border: 1px solid color-mix(in oklch, var(--positive) 20%, transparent); }
+.status-badge--pending { background: color-mix(in oklch, var(--warning) 12%, transparent); color: var(--warning); border: 1px solid color-mix(in oklch, var(--warning) 20%, transparent); }
+.status-badge--expired { background: color-mix(in oklch, var(--negative) 12%, transparent); color: var(--negative); border: 1px solid color-mix(in oklch, var(--negative) 20%, transparent); }
+
+.domain-actions { display: flex; gap: var(--space-xs); }
+.domain-actions button {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 500;
+  padding: 0.25rem 0.55rem; border: 1px solid var(--border);
+  background: transparent; color: var(--fg-2); border-radius: var(--radius);
+  cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.domain-actions button:hover { border-color: var(--accent-dim); color: var(--accent); }
+.domain-actions button.danger:hover { border-color: var(--negative); color: var(--negative); }
+
+/* ============================================================
+   PAGE: DOMAIN BARU
+   ============================================================ */
+.claim-card {
+  max-width: 560px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: var(--space-xl);
+}
+.claim-card h2 { margin-bottom: var(--space-xs); }
+.claim-card > p { margin-bottom: var(--space-lg); font-size: 0.85rem; }
+
+.claim-check-form {
+  display: flex; border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--space-lg);
+}
+.claim-check-form:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 12%, transparent); }
+.claim-check-form input {
+  flex: 1; font-family: var(--font-mono); font-size: 0.85rem;
+  padding: 0.65rem 0.8rem; background: transparent; border: none;
+  color: var(--fg); outline: none;
+}
+.claim-check-form input::placeholder { font-family: var(--font-body); color: var(--muted); }
+.claim-check-form span {
+  display: flex; align-items: center; padding: 0 0.75rem 0 0.25rem;
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap;
+}
+.claim-check-form button {
+  font-family: var(--font-body); font-weight: 600; font-size: 0.85rem;
+  padding: 0.65rem 1.2rem; background: var(--accent); color: var(--bg);
+  border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap;
+}
+.claim-check-form button:hover { background: var(--accent-gl); }
+
+.claim-result { margin-top: var(--space-sm); }
+
+.claim-form { display: flex; flex-direction: column; gap: var(--space-md); }
+.claim-form .form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);
+}
+.claim-form label {
+  display: flex; flex-direction: column; gap: var(--space-xs);
+  font-size: 0.8rem; font-weight: 500; color: var(--fg-2);
+}
+.claim-form label input, .claim-form label select {
+  font-family: var(--font-body); font-size: 0.85rem;
+  padding: 0.55rem 0.75rem; background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); color: var(--fg); outline: none;
+}
+.claim-form label input:focus, .claim-form label select:focus {
+  border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 12%, transparent);
+}
+.claim-form label select { cursor: pointer; }
+.claim-form .btn--primary { align-self: flex-start; }
+
+/* ============================================================
+   PAGE: DNS
+   ============================================================ */
+.dns-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: var(--space-xl);
+  max-width: 720px;
+}
+.dns-card h2 { margin-bottom: var(--space-xs); }
+.dns-card > p { margin-bottom: var(--space-lg); font-size: 0.85rem; }
+
+.dns-domain-select {
+  display: flex; gap: var(--space-sm); margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+.dns-domain-select select {
+  font-family: var(--font-mono); font-size: 0.85rem;
+  padding: 0.5rem 0.75rem; background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); color: var(--fg); outline: none; flex: 1;
+  min-width: 200px;
+}
+.dns-domain-select select:focus { border-color: var(--accent); }
+
+.dns-table-wrap { overflow-x: auto; }
+.dns-table { width: 100%; border-collapse: collapse; }
+.dns-table th {
+  font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted); padding: var(--space-sm) var(--space-md);
+  text-align: left; border-bottom: 1px solid var(--border); font-weight: 500;
+}
+.dns-table td {
+  padding: var(--space-sm) var(--space-md); font-size: 0.8rem;
+  font-family: var(--font-mono); border-bottom: 1px solid var(--border);
+}
+.dns-table tr:last-child td { border-bottom: none; }
+.dns-table .type { font-weight: 600; color: var(--accent-dim); }
+.dns-table .value { color: var(--fg-2); word-break: break-all; }
+.dns-table .ttl { color: var(--muted); }
+
+.dns-add {
+  margin-top: var(--space-md); display: flex; gap: var(--space-sm); flex-wrap: wrap;
+}
+.dns-add select, .dns-add input {
+  font-family: var(--font-mono); font-size: 0.8rem;
+  padding: 0.45rem 0.7rem; background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); color: var(--fg); outline: none;
+}
+.dns-add select:focus, .dns-add input:focus { border-color: var(--accent); }
+.dns-add input[type="text"] { flex: 1; min-width: 150px; }
+
+/* ============================================================
+   PAGE: PENGATURAN
+   ============================================================ */
+.settings-card {
+  max-width: 560px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: var(--space-xl);
+}
+.settings-card h2 { margin-bottom: var(--space-xs); }
+.settings-card > p { margin-bottom: var(--space-lg); font-size: 0.85rem; }
+
+.settings-form { display: flex; flex-direction: column; gap: var(--space-md); }
+.settings-form .form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);
+}
+.settings-form label {
+  display: flex; flex-direction: column; gap: var(--space-xs);
+  font-size: 0.8rem; font-weight: 500; color: var(--fg-2);
+}
+.settings-form label input {
+  font-family: var(--font-body); font-size: 0.85rem;
+  padding: 0.55rem 0.75rem; background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); color: var(--fg); outline: none;
+}
+.settings-form label input:focus {
+  border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 12%, transparent);
+}
+.settings-form label input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.settings-divider { height: 1px; background: var(--border); margin: var(--space-sm) 0; }
+
+.settings-danger {
+  margin-top: var(--space-lg); padding: var(--space-lg);
+  border: 1px solid color-mix(in oklch, var(--negative) 25%, transparent);
+  border-radius: var(--radius-lg); background: color-mix(in oklch, var(--negative) 5%, transparent);
+}
+.settings-danger h3 { color: var(--negative); margin-bottom: var(--space-xs); }
+.settings-danger p { font-size: 0.8rem; margin-bottom: var(--space-md); }
+.btn--danger {
+  font-family: var(--font-body); font-weight: 600; font-size: 0.8rem;
+  padding: 0.5rem 1.2rem; background: transparent; color: var(--negative);
+  border: 1px solid var(--negative); border-radius: var(--radius);
+  cursor: pointer; transition: all 0.2s;
+}
+.btn--danger:hover { background: var(--negative); color: var(--bg); }
+
+/* ============================================================
+   OFFCANVAS (mobile sidebar)
+   ============================================================ */
+.offcanvas-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: oklch(0% 0 0 / 0.6); backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.offcanvas-overlay.open { opacity: 1; pointer-events: auto; }
+
+.offcanvas {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 210;
+  width: min(280px, 75vw); background: var(--surface);
+  border-right: 1px solid var(--border);
+  transform: translateX(-100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+.offcanvas.open { transform: translateX(0); }
+
+.offcanvas__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-lg) var(--space-lg);
+  border-bottom: 1px solid var(--border);
+}
+.offcanvas__logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--fg);
+}
+.offcanvas__logo span { color: var(--accent); }
+.offcanvas__close {
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--fg-2); font-size: 1.2rem; cursor: pointer; transition: border-color 0.2s;
+}
+.offcanvas__close:hover { border-color: var(--accent); }
+
+.offcanvas__nav { display: flex; flex-direction: column; padding: var(--space-sm) 0; gap: 2px; }
+.offcanvas__link {
+  display: flex; align-items: center; gap: var(--space-sm);
+  padding: 0.6rem var(--space-lg); margin: 0 var(--space-sm);
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+  color: var(--fg-2); border-radius: var(--radius);
+  transition: background 0.2s, color 0.2s; border: none; background: none; width: calc(100% - var(--space-sm)*2);
+  cursor: pointer; text-align: left;
+}
+.offcanvas__link:hover { background: var(--surface-2); color: var(--fg); text-decoration: none; }
+.offcanvas__link.active { color: var(--accent); background: color-mix(in oklch, var(--accent) 8%, transparent); }
+
+/* ============================================================
+   SHARED / UTILITY
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  font-family: var(--font-body); font-weight: 500; font-size: 0.85rem;
+  padding: 0.5rem 1.2rem; border: none; border-radius: var(--radius);
+  cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+}
+.btn--primary { background: var(--accent); color: var(--bg); }
+.btn--primary:hover { background: var(--accent-gl); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.empty-state {
+  text-align: center; padding: var(--space-3xl) var(--space-xl);
+}
+.empty-state p { max-width: 360px; margin: var(--space-md) auto 0; font-size: 0.85rem; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet & below */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: var(--space-lg); }
+  .main__hamburger { display: flex; }
+  .claim-form .form-row { grid-template-columns: 1fr; }
+  .settings-form .form-row { grid-template-columns: 1fr; }
+}
+
+/* Mobile small */
+@media (max-width: 480px) {
+  .main { padding: var(--space-md); }
+  .main__top { flex-direction: row; gap: var(--space-sm); }
+  .stats-grid { grid-template-columns: 1fr; }
+  .subdomain-controls { flex-direction: column; align-items: stretch; }
+  .subdomain-search { min-width: 0; }
+  .status-filter { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+  .status-filter__btn { flex-shrink: 0; }
+  .claim-card { padding: var(--space-lg); }
+  .claim-check-form { flex-wrap: wrap; }
+  .claim-check-form input { min-width: 0; flex: 1 1 100px; }
+  .dns-card { padding: var(--space-lg); }
+  .dns-add { flex-direction: column; }
+  .dns-add select, .dns-add input { width: 100%; }
+  .settings-card { padding: var(--space-lg); }
+  .settings-form .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- ============================================================
+       SIDEBAR (desktop)
+       ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar__head">
+      <span class="sidebar__logo">lapak<span>.click</span></span>
+    </div>
+
+    <nav class="sidebar__nav" id="sidebarNav">
+      <button type="button" class="sidebar__link active" data-page="overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Beranda</title><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Beranda
+      </button>
+      <button type="button" class="sidebar__link" data-page="subdomains">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Subdomain</title><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Subdomain Saya
+      </button>
+      <button type="button" class="sidebar__link" data-page="claim">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Domain Baru</title><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        Domain Baru
+      </button>
+      <button type="button" class="sidebar__link" data-page="dns">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>DNS</title><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        DNS
+      </button>
+      <button type="button" class="sidebar__link" data-page="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Pengaturan</title><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Pengaturan
+      </button>
+    </nav>
+
+    <div class="sidebar__user">
+      <div class="sidebar__avatar">DK</div>
+      <div class="sidebar__user-info">
+        <div class="sidebar__user-name">Dokun</div>
+        <div class="sidebar__user-role">UMKM</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       OFF-CANVAS (mobile sidebar)
+       ============================================================ -->
+  <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+  <aside class="offcanvas" id="offcanvas">
+    <div class="offcanvas__head">
+      <span class="offcanvas__logo">lapak<span>.click</span></span>
+      <button type="button" class="offcanvas__close" id="offcanvasClose" aria-label="Tutup menu">✕</button>
+    </div>
+    <nav class="offcanvas__nav" id="offcanvasNav">
+      <button type="button" class="offcanvas__link active" data-page="overview">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Beranda</title><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Beranda
+      </button>
+      <button type="button" class="offcanvas__link" data-page="subdomains">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Subdomain</title><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Subdomain Saya
+      </button>
+      <button type="button" class="offcanvas__link" data-page="claim">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Domain Baru</title><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        Domain Baru
+      </button>
+      <button type="button" class="offcanvas__link" data-page="dns">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>DNS</title><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        DNS
+      </button>
+      <button type="button" class="offcanvas__link" data-page="settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Pengaturan</title><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Pengaturan
+      </button>
+    </nav>
+  </aside>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main class="main">
+
+    <div class="main__top">
+      <div class="main__page-title">
+        <h1 id="pageTitle">Beranda</h1>
+        <p id="pageSubtitle">Ringkasan akun lapak.click Anda</p>
+      </div>
+      <button type="button" class="main__hamburger" id="mobileMenuBtn" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- ===================== PAGE: BERANDA ===================== -->
+    <div class="page active" id="page-overview">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__label">Total Subdomain</div>
+          <div class="stat-card__value">4</div>
+          <div class="stat-card__change up">+2 minggu ini</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Aktif</div>
+          <div class="stat-card__value">3</div>
+          <div class="stat-card__change up">Semua aktif</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Pengunjung (30 hari)</div>
+          <div class="stat-card__value">1,247</div>
+          <div class="stat-card__change up">+12%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Sisa Klaim</div>
+          <div class="stat-card__value">6</div>
+          <div class="stat-card__change" style="color:var(--fg-2);">dari 10 akun gratis</div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <h2>Aktivitas Terbaru</h2>
+        <a href="#" style="font-size:0.8rem;">Lihat Semua</a>
+      </div>
+
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-item__icon claim">✓</div>
+          <div class="activity-item__body">
+            <div class="activity-item__title">Subdomain <span class="text-mono">warungku.lapak.click</span> berhasil di-claim</div>
+            <div class="activity-item__meta">Status: Aktif · SSL aktif</div>
+          </div>
+          <div class="activity-item__time">2 jam lalu</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-item__icon dns">→</div>
+          <div class="activity-item__body">
+            <div class="activity-item__title">DNS record A diupdate untuk <span class="text-mono">toko.lapak.click</span></div>
+            <div class="activity-item__meta">Target IP: 192.168.1.10</div>
+          </div>
+          <div class="activity-item__time">1 hari lalu</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-item__icon claim">✓</div>
+          <div class="activity-item__body">
+            <div class="activity-item__title">Subdomain <span class="text-mono">katering.lapak.click</span> berhasil di-claim</div>
+            <div class="activity-item__meta">Status: Aktif · SSL aktif</div>
+          </div>
+          <div class="activity-item__time">3 hari lalu</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-item__icon warn">!</div>
+          <div class="activity-item__body">
+            <div class="activity-item__title">Subdomain <span class="text-mono">test.lapak.click</span> tidak diakses 30 hari</div>
+            <div class="activity-item__meta">Subdomain nonaktif otomatis jika tidak ada aktivitas</div>
+          </div>
+          <div class="activity-item__time">5 hari lalu</div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-item__icon dns">→</div>
+          <div class="activity-item__body">
+            <div class="activity-item__title">CNAME record ditambahkan ke <span class="text-mono">blog.lapak.click</span></div>
+            <div class="activity-item__meta">Target: blog.github.io</div>
+          </div>
+          <div class="activity-item__time">1 minggu lalu</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===================== PAGE: SUBDOMAIN SAYA ===================== -->
+    <div class="page" id="page-subdomains">
+
+      <div class="subdomain-controls">
+        <div class="subdomain-search">
+          <input type="text" id="domainSearch" placeholder="Cari subdomain..." autocomplete="off" spellcheck="false">
+        </div>
+        <div class="status-filter">
+          <button type="button" class="status-filter__btn active" data-filter="all">Semua</button>
+          <button type="button" class="status-filter__btn" data-filter="active">Aktif</button>
+          <button type="button" class="status-filter__btn" data-filter="pending">Pending</button>
+          <button type="button" class="status-filter__btn" data-filter="expired">Expired</button>
+        </div>
+      </div>
+
+      <div class="domain-table-wrap">
+        <table class="domain-table">
+          <thead>
+            <tr>
+              <th>Subdomain</th>
+              <th>Status</th>
+              <th>Dibuat</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="domainList">
+            <tr>
+              <td><span class="domain-name">warungku.lapak.click</span></td>
+              <td><span class="status-badge status-badge--active">Aktif</span></td>
+              <td style="font-size:0.8rem;color:var(--muted);">12 Jun 2026</td>
+              <td>
+                <div class="domain-actions">
+                  <button type="button" onclick="navigateTo('dns')">DNS</button>
+                  <button type="button" class="danger">Hapus</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="domain-name">toko.lapak.click</span></td>
+              <td><span class="status-badge status-badge--active">Aktif</span></td>
+              <td style="font-size:0.8rem;color:var(--muted);">8 Jun 2026</td>
+              <td>
+                <div class="domain-actions">
+                  <button type="button" onclick="navigateTo('dns')">DNS</button>
+                  <button type="button" class="danger">Hapus</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="domain-name">katering.lapak.click</span></td>
+              <td><span class="status-badge status-badge--active">Aktif</span></td>
+              <td style="font-size:0.8rem;color:var(--muted);">3 Jun 2026</td>
+              <td>
+                <div class="domain-actions">
+                  <button type="button" onclick="navigateTo('dns')">DNS</button>
+                  <button type="button" class="danger">Hapus</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="domain-name">test.lapak.click</span></td>
+              <td><span class="status-badge status-badge--expired">Nonaktif</span></td>
+              <td style="font-size:0.8rem;color:var(--muted);">15 Mei 2026</td>
+              <td>
+                <div class="domain-actions">
+                  <button type="button" onclick="navigateTo('dns')">DNS</button>
+                  <button type="button" class="danger">Hapus</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ===================== PAGE: DOMAIN BARU ===================== -->
+    <div class="page" id="page-claim">
+
+      <div class="claim-card">
+        <h2>Claim Subdomain Baru</h2>
+        <p>Cek ketersediaan dan dapatkan subdomain <span class="text-mono">.lapak.click</span> gratis untuk usaha Anda.</p>
+
+        <form class="claim-check-form" id="claimCheckForm" onsubmit="return checkClaimAvailability()">
+          <input type="text" id="claimNameInput" placeholder="nama-usaha" autocomplete="off" spellcheck="false">
+          <span>.lapak.click</span>
+          <button type="submit" id="claimCheckBtn">Cek</button>
+        </form>
+        <div id="claimCheckResult" class="claim-result"></div>
+
+        <form class="claim-form" id="claimForm" onsubmit="return submitClaim()" style="display:none;">
+          <div class="form-row">
+            <label>
+              Nama Subdomain
+              <input type="text" id="claimFinalDomain" readonly style="font-family:var(--font-mono);opacity:0.7;">
+            </label>
+            <label>
+              Template Website
+              <select>
+                <option>Landing Page</option>
+                <option>Toko Online</option>
+                <option>Portofolio</option>
+                <option>Link Bio</option>
+                <option>Kustom (upload sendiri)</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary" id="claimSubmitBtn">Claim Sekarang</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- ===================== PAGE: DNS ===================== -->
+    <div class="page" id="page-dns">
+
+      <div class="dns-card">
+        <h2>DNS Records</h2>
+        <p>Kelola DNS record untuk subdomain Anda. Perubahan berlaku 5–10 menit.</p>
+
+        <div class="dns-domain-select">
+          <select id="dnsDomainSelect">
+            <option>warungku.lapak.click</option>
+            <option>toko.lapak.click</option>
+            <option>katering.lapak.click</option>
+          </select>
+          <button type="button" class="btn btn--ghost" onclick="addDnsRow()" style="font-size:0.8rem;">+ Tambah Record</button>
+        </div>
+
+        <div class="dns-table-wrap">
+          <table class="dns-table">
+            <thead>
+              <tr><th>Type</th><th>Name</th><th>Value</th><th>TTL</th><th></th></tr>
+            </thead>
+            <tbody id="dnsRows">
+              <tr>
+                <td class="type">A</td>
+                <td>@</td>
+                <td class="value">192.168.1.1</td>
+                <td class="ttl">3600</td>
+                <td><button type="button" style="background:none;border:none;color:var(--negative);cursor:pointer;font-size:0.8rem;" onclick="this.closest('tr').remove()">✕</button></td>
+              </tr>
+              <tr>
+                <td class="type">CNAME</td>
+                <td>www</td>
+                <td class="value">warungku.lapak.click</td>
+                <td class="ttl">3600</td>
+                <td><button type="button" style="background:none;border:none;color:var(--negative);cursor:pointer;font-size:0.8rem;" onclick="this.closest('tr').remove()">✕</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dns-add" id="dnsAddRow" style="display:none;">
+          <select>
+            <option>A</option><option>AAAA</option><option>CNAME</option><option>MX</option><option>TXT</option><option>NS</option>
+          </select>
+          <input type="text" placeholder="Name (e.g. @, www, blog)">
+          <input type="text" placeholder="Value">
+          <button type="button" class="btn btn--primary" onclick="saveDnsRow()" style="font-size:0.8rem;">Simpan</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===================== PAGE: PENGATURAN ===================== -->
+    <div class="page" id="page-settings">
+
+      <div class="settings-card">
+        <h2>Profil</h2>
+        <p>Informasi akun lapak.click Anda.</p>
+
+        <form class="settings-form" onsubmit="return false;">
+          <div class="form-row">
+            <label>
+              Nama Lengkap
+              <input type="text" value="Dokun" placeholder="Nama lengkap">
+            </label>
+            <label>
+              Email
+              <input type="email" value="dokun@email.com" placeholder="email@domain.com">
+            </label>
+          </div>
+          <label>
+            Nomor WhatsApp
+            <input type="tel" value="0812-3456-7890" placeholder="08xx-xxxx-xxxx">
+          </label>
+          <button type="submit" class="btn btn--primary" style="align-self:flex-start;">Simpan</button>
+        </form>
+      </div>
+
+      <div style="height:var(--space-lg);"></div>
+
+      <div class="settings-card">
+        <h2>Keamanan</h2>
+        <p>Ganti password akun Anda.</p>
+
+        <form class="settings-form" onsubmit="return false;">
+          <label>
+            Password Baru
+            <input type="password" placeholder="Minimal 8 karakter">
+          </label>
+          <label>
+            Konfirmasi Password
+            <input type="password" placeholder="Ulangi password baru">
+          </label>
+          <button type="submit" class="btn btn--primary" style="align-self:flex-start;">Update Password</button>
+        </form>
+      </div>
+
+      <div style="height:var(--space-lg);"></div>
+
+      <div class="settings-danger">
+        <h3>Hapus Akun</h3>
+        <p>Setelah akun dihapus, semua subdomain akan nonaktif dan tidak bisa dikembalikan.</p>
+        <button type="button" class="btn--danger">Hapus Akun</button>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ============================================================
+     Tab Navigation
+     ============================================================ */
+  var pageTitles = {
+    overview:   ['Beranda', 'Ringkasan akun lapak.click Anda'],
+    subdomains: ['Subdomain Saya', 'Kelola subdomain yang sudah di-claim'],
+    claim:      ['Domain Baru', 'Claim subdomain .lapak.click gratis'],
+    dns:        ['DNS', 'Kelola DNS record subdomain Anda'],
+    settings:   ['Pengaturan', 'Pengaturan profil dan keamanan akun']
+  };
+
+  window.navigateTo = function(pageId) {
+    if (!pageId) return;
+    var links, i, link, isActive, pages, j, target, info;
+
+    /* Update sidebar & offcanvas link active states by ID lookup */
+    links = document.querySelectorAll('.sidebar__link, .offcanvas__link');
+    for (i = 0; i < links.length; i++) {
+      link = links[i];
+      isActive = link.getAttribute('data-page') === pageId;
+      if (isActive && !link.classList.contains('active')) {
+        link.classList.add('active');
+      } else if (!isActive && link.classList.contains('active')) {
+        link.classList.remove('active');
+      }
+    }
+
+    /* Update pages */
+    pages = document.querySelectorAll('.page');
+    for (j = 0; j < pages.length; j++) {
+      pages[j].classList.remove('active');
+    }
+    target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+
+    /* Update title */
+    info = pageTitles[pageId];
+    if (info) {
+      document.getElementById('pageTitle').textContent = info[0];
+      document.getElementById('pageSubtitle').textContent = info[1];
+    }
+  };
+
+  /* Event delegation — sidebar */
+  var sidebarNav = document.getElementById('sidebarNav');
+  if (sidebarNav) {
+    sidebarNav.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-page]');
+      if (btn) {
+        navigateTo(btn.getAttribute('data-page'));
+      }
+    });
+  }
+
+  /* Event delegation — offcanvas (also closes menu) */
+  var offcanvasNav = document.getElementById('offcanvasNav');
+  if (offcanvasNav) {
+    offcanvasNav.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-page]');
+      if (btn) {
+        navigateTo(btn.getAttribute('data-page'));
+        closeMenu();
+      }
+    });
+  }
+
+  /* ============================================================
+     Mobile Menu
+     ============================================================ */
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var overlay = document.getElementById('offcanvasOverlay');
+  var offcanvas = document.getElementById('offcanvas');
+  var closeBtn = document.getElementById('offcanvasClose');
+
+  function openMenu() {
+    if (overlay) overlay.classList.add('open');
+    if (offcanvas) offcanvas.classList.add('open');
+    if (document.body) document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (overlay) overlay.classList.remove('open');
+    if (offcanvas) offcanvas.classList.remove('open');
+    if (document.body) document.body.style.overflow = '';
+  }
+
+  if (mobileBtn) mobileBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  /* ============================================================
+     Subdomain Search & Filter
+     ============================================================ */
+  var searchInput = document.getElementById('domainSearch');
+  var filterBtns = document.querySelectorAll('.status-filter__btn');
+
+  function filterDomains() {
+    if (!searchInput) return;
+    var query = searchInput.value.toLowerCase();
+    var activeFilter = document.querySelector('.status-filter__btn.active');
+    var filter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+
+    document.querySelectorAll('#domainList tr').forEach(function(row) {
+      var name = row.querySelector('.domain-name');
+      var badge = row.querySelector('.status-badge');
+      if (!name) return;
+
+      var matchesSearch = name.textContent.toLowerCase().indexOf(query) !== -1;
+      var matchesFilter = filter === 'all' ||
+        (filter === 'active' && badge && badge.classList.contains('status-badge--active')) ||
+        (filter === 'pending' && badge && badge.classList.contains('status-badge--pending')) ||
+        (filter === 'expired' && badge && (badge.classList.contains('status-badge--expired') || badge.textContent.toLowerCase().indexOf('nonaktif') !== -1));
+
+      row.style.display = matchesSearch && matchesFilter ? '' : 'none';
+    });
+  }
+
+  if (searchInput) searchInput.addEventListener('input', filterDomains);
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      filterDomains();
+    });
+  });
+
+  /* ============================================================
+     Claim — Check Availability
+     ============================================================ */
+  window.checkClaimAvailability = function() {
+    var input = document.getElementById('claimNameInput');
+    var result = document.getElementById('claimCheckResult');
+    var val = input.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+
+    if (!val) { result.innerHTML = ''; return false; }
+
+    result.innerHTML = '<div style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:0.4rem;">Memeriksa...</div>';
+
+    setTimeout(function() {
+      var available = Math.random() > 0.4;
+      var fullDomain = val + '.lapak.click';
+
+      if (available) {
+        result.innerHTML =
+          '<div class="claim-result" style="border:1px solid color-mix(in oklch, var(--positive) 30%, transparent);background:color-mix(in oklch, var(--positive) 8%, transparent);border-radius:var(--radius-lg);padding:var(--space-md);margin-top:var(--space-sm);">' +
+          '<div style="color:var(--positive);font-weight:600;font-size:0.9rem;">✓ Tersedia!</div>' +
+          '<div style="font-family:var(--font-mono);font-size:0.85rem;color:var(--fg-2);margin:4px 0 var(--space-sm);">' + fullDomain + '</div>' +
+          '<button type="button" class="btn btn--primary" onclick="showClaimForm(\'' + val + '\')" style="font-size:0.8rem;">Claim Sekarang</button>' +
+          '</div>';
+      } else {
+        result.innerHTML =
+          '<div class="claim-result" style="border:1px solid color-mix(in oklch, var(--negative) 30%, transparent);background:color-mix(in oklch, var(--negative) 8%, transparent);border-radius:var(--radius-lg);padding:var(--space-md);margin-top:var(--space-sm);">' +
+          '<div style="color:var(--negative);font-weight:600;font-size:0.9rem;">✗ Sudah digunakan</div>' +
+          '<div style="font-family:var(--font-mono);font-size:0.85rem;color:var(--muted);margin-top:4px;">' + fullDomain + ' sudah dipakai, coba nama lain</div>' +
+          '</div>';
+      }
+    }, 800);
+
+    return false;
+  };
+
+  window.showClaimForm = function(name) {
+    document.getElementById('claimForm').style.display = 'flex';
+    document.getElementById('claimFinalDomain').value = name + '.lapak.click';
+    document.getElementById('claimForm').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  window.submitClaim = function() {
+    var domain = document.getElementById('claimFinalDomain').value;
+    if (!domain) return false;
+    alert('Subdomain ' + domain + ' berhasil di-claim!');
+    return false;
+  };
+
+  /* ============================================================
+     DNS — Add Record
+     ============================================================ */
+  window.addDnsRow = function() {
+    var el = document.getElementById('dnsAddRow');
+    el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+  };
+
+  window.saveDnsRow = function() {
+    var addRow = document.getElementById('dnsAddRow');
+    var selects = addRow.querySelectorAll('select, input');
+    if (!selects[0] || !selects[1] || !selects[2]) return;
+
+    var type = selects[0].value;
+    var name = selects[1].value || '@';
+    var value = selects[2].value;
+
+    if (!value) return;
+
+    var tbody = document.getElementById('dnsRows');
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td class="type">' + type + '</td>' +
+      '<td style="font-family:var(--font-mono)">' + name + '</td>' +
+      '<td class="value">' + value + '</td>' +
+      '<td class="ttl">3600</td>' +
+      '<td><button type="button" style="background:none;border:none;color:var(--negative);cursor:pointer;font-size:0.8rem;" onclick="this.closest(\'tr\').remove()">✕</button></td>';
+    tbody.appendChild(tr);
+
+    /* Reset & hide */
+    selects[1].value = '';
+    selects[2].value = '';
+    addRow.style.display = 'none';
+  };
+
+})();
+</script>
+</body>
+</html>

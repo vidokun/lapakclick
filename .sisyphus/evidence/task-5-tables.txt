@@ -1,0 +1,62 @@
+Task 5: Database Schema & Supabase Migration
+=============================================
+Date: 2026-07-03
+Files created:
+  - supabase/migrations/001_initial.sql
+  - supabase/seed.sql
+
+Tables created:
+  1. subdomains
+     - id (UUID PK)
+     - user_id (UUID FK → auth.users)
+     - name (VARCHAR(63) UNIQUE, CHECK regex format)
+     - target (VARCHAR(255))
+     - status (VARCHAR(20), CHECK: active|pending|suspended)
+     - ssl_status (VARCHAR(20), CHECK: active|pending|unavailable)
+     - last_active_at (TIMESTAMPTZ)
+     - created_at (TIMESTAMPTZ)
+     - updated_at (TIMESTAMPTZ)
+
+  2. dns_records
+     - id (UUID PK)
+     - subdomain_id (UUID FK → subdomains, ON DELETE CASCADE)
+     - type (VARCHAR(10), CHECK: A|AAAA|CNAME|MX|TXT|NS)
+     - name (VARCHAR(255), DEFAULT '@')
+     - value (TEXT)
+     - ttl (INTEGER, DEFAULT 120, CHECK 60-86400)
+     - priority (INTEGER, nullable for MX)
+     - cloudflare_id (VARCHAR(255), nullable)
+     - created_at (TIMESTAMPTZ)
+     - updated_at (TIMESTAMPTZ)
+
+  3. activity_logs
+     - id (UUID PK)
+     - user_id (UUID FK → auth.users)
+     - action (VARCHAR(50))
+     - details (JSONB, nullable)
+     - created_at (TIMESTAMPTZ)
+
+Indexes:
+  - idx_subdomains_user_id, idx_subdomains_name, idx_subdomains_status
+  - idx_dns_records_subdomain_id, idx_dns_records_type
+  - idx_activity_logs_user_id, idx_activity_logs_created_at (DESC)
+
+Functions:
+  - update_updated_at_column() — sets NEW.updated_at = now()
+  - check_subdomain_limit() — raises EXCEPTION if user has >= 3 subdomains
+
+Triggers:
+  - trg_subdomains_updated_at (BEFORE UPDATE)
+  - trg_dns_records_updated_at (BEFORE UPDATE)
+  - trg_enforce_subdomain_limit (BEFORE INSERT on subdomains)
+
+RLS Policies (basic — refined in Task 10):
+  - subdomains: SELECT/INSERT/UPDATE/DELETE own records
+  - dns_records: SELECT/INSERT/UPDATE/DELETE on own subdomains' records (via subquery)
+  - activity_logs: SELECT own, INSERT via service role
+
+Seed data:
+  - 2 test users (auth.users with encrypted passwords)
+  - 3 subdomains (warungku, toko, katering)
+  - 5 DNS records (A + CNAME records)
+  - 8 activity log entries

@@ -1,0 +1,1 @@
+Validation rejects invalid type. Simulated response: 400 Validation Error

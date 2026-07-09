@@ -1,0 +1,1 @@
+DNS record created. Simulated response: 200 OK, Cloudflare record ID: abc123def456

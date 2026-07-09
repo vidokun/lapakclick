@@ -1,0 +1,33 @@
+Task 1 — Directory Structure Evidence
+======================================
+Date: 2026-07-03
+
+Project Root Contents:
+.sisyphus/       — Orchestration & evidence
+app/             — App Router pages
+components/      — UI components (empty, ready for Task 3-4)
+design/          — Design files (do not modify)
+lib/             — Library code (empty, ready for Tasks 6-7)
+public/          — Static assets
+types/           — TypeScript types (empty, ready for Task 7)
+
+Configuration Files:
+.next/           — Build output (gitignored)
+node_modules/    — Dependencies (gitignored)
+.gitignore       — Version control ignore rules
+.env.local.example — Environment variable template
+eslint.config.mjs — ESLint configuration
+next-env.d.ts    — Next.js type declarations
+next.config.ts   — Next.js configuration
+package.json     — Project manifest
+package-lock.json — Dependency lock file
+playwright.config.ts — Playwright E2E test configuration
+postcss.config.mjs — PostCSS configuration (Tailwind)
+tsconfig.json    — TypeScript configuration
+
+Verification:
+- app/ — exists ✓
+- components/ — exists ✓
+- lib/ — exists ✓
+- types/ — exists ✓
+- public/ — exists ✓

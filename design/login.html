@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masuk — lapak.click</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1,2,3,4,5,6,7,8,9,10&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   lapak.click — Login · Midnight Purple
+   Compact · Modern · Mobile-first
+   ============================================================ */
+
+/* --- Reset & base ---------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { overflow-x: clip; font-family: 'Geist', system-ui, sans-serif; background: oklch(10% 0.018 280); color: oklch(92% 0.008 280); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* --- Tokens (midnight purple) ---------------------------- */
+:root {
+  --bg:        oklch(10% 0.018 280);
+  --surface:   oklch(14% 0.022 280);
+  --surface-2: oklch(18% 0.025 280);
+  --fg:        oklch(92% 0.008 280);
+  --fg-2:      oklch(75% 0.010 280);
+  --muted:     oklch(55% 0.015 280);
+  --border:    oklch(22% 0.025 280);
+  --accent:    oklch(68% 0.18 285);
+  --accent-dim: oklch(55% 0.14 285);
+  --accent-gl: oklch(78% 0.20 290);
+  --positive:  oklch(65% 0.18 150);
+  --negative:  oklch(60% 0.18 25);
+
+  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-body:    'Geist', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  0.75rem;
+  --space-lg:  1rem;
+  --space-xl:  1.5rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --radius:   4px;
+  --radius-lg: 8px;
+}
+
+/* --- Typography ------------------------------------------ */
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(1.6rem, 3vw + 0.5rem, 2rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.4rem, 3vw + 0.5rem, 2.4rem); letter-spacing: -0.025em; }
+h3 { font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem); letter-spacing: -0.02em; }
+p { color: var(--fg-2); max-width: 65ch; font-size: 0.95rem; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-gl); text-decoration: none; }
+.text-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* --- Layout ---------------------------------------------- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-xl); }
+
+/* --- Button ---------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  font-family: var(--font-body); font-weight: 500; font-size: 0.85rem;
+  padding: 0.5rem 1.2rem; border: none; border-radius: var(--radius);
+  cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+}
+.btn--primary { background: var(--accent); color: var(--bg); }
+.btn--primary:hover { background: var(--accent-gl); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn--full { width: 100%; justify-content: center; }
+
+/* ============================================================
+   HEADER — sticky + nav + hamburger
+   ============================================================ */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in oklch, var(--bg) 85%, transparent);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header__inner {
+  display: flex; align-items: center; gap: var(--space-lg);
+  padding: var(--space-sm) var(--space-xl);
+  max-width: 1200px; margin: 0 auto;
+}
+.header__logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+  color: var(--fg); white-space: nowrap; flex-shrink: 0;
+}
+.header__logo span { color: var(--accent); }
+
+/* Desktop nav */
+.nav { display: flex; align-items: center; gap: var(--space-xs); margin-left: auto; align-self: flex-start; }
+.nav__link {
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 450;
+  color: var(--fg-2); padding: 0.3rem 0.7rem; border-radius: var(--radius);
+  transition: color 0.2s, background 0.2s; white-space: nowrap;
+}
+.nav__link:hover { color: var(--fg); background: var(--surface); text-decoration: none; }
+.nav__link--active { color: var(--accent); }
+
+/* --- Hamburger ------------------------------------------- */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 4px; width: 32px; height: 32px; padding: 4px; margin-left: auto;
+  background: none; border: 1px solid var(--border); border-radius: var(--radius);
+  cursor: pointer; transition: border-color 0.2s; flex-shrink: 0;
+}
+.hamburger:hover { border-color: var(--accent); }
+.hamburger__line {
+  display: block; width: 100%; height: 2px; background: var(--fg);
+  border-radius: 1px; transition: all 0.3s ease; transform-origin: center;
+}
+.hamburger.open .hamburger__line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open .hamburger__line:nth-child(2) { opacity: 0; }
+.hamburger.open .hamburger__line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ============================================================
+   OFF-CANVAS MOBILE MENU
+   ============================================================ */
+.offcanvas-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: oklch(0% 0 0 / 0.6); backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.offcanvas-overlay.open { opacity: 1; pointer-events: auto; }
+
+.offcanvas {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 210;
+  width: min(320px, 80vw); background: var(--surface);
+  border-left: 1px solid var(--border);
+  transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+.offcanvas.open { transform: translateX(0); }
+
+.offcanvas__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border);
+}
+.offcanvas__logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+  color: var(--fg);
+}
+.offcanvas__logo span { color: var(--accent); }
+.offcanvas__close {
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--fg-2); font-size: 1.2rem; cursor: pointer; transition: border-color 0.2s;
+}
+.offcanvas__close:hover { border-color: var(--accent); }
+
+.offcanvas__nav { display: flex; flex-direction: column; padding: var(--space-md) 0; }
+.offcanvas__link {
+  display: block; padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-body); font-size: 1rem; font-weight: 500;
+  color: var(--fg-2); transition: background 0.2s, color 0.2s;
+}
+.offcanvas__link:hover { background: var(--surface-2); color: var(--fg); text-decoration: none; }
+
+/* ============================================================
+   LOGIN SECTION
+   ============================================================ */
+.login {
+  min-height: calc(100vh - 56px - 120px); /* full viewport minus header minus footer */
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-3xl) var(--space-xl);
+  position: relative; overflow: hidden;
+}
+.login::before {
+  content: ''; position: absolute; top: -40%; left: 50%;
+  width: 600px; height: 600px;
+  transform: translate(-50%, -20%);
+  background: radial-gradient(circle, oklch(28% 0.10 280 / 0.25), transparent 65%);
+  pointer-events: none;
+}
+
+.login__card {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 400px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.login__head {
+  text-align: center; margin-bottom: var(--space-xl);
+}
+.login__head h1 { margin-bottom: var(--space-xs); }
+.login__head p { font-size: 0.85rem; margin: 0 auto; }
+
+/* --- Form ------------------------------------------------ */
+.form { display: flex; flex-direction: column; gap: var(--space-lg); }
+
+.form__group { display: flex; flex-direction: column; gap: var(--space-xs); }
+.form__label {
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 500;
+  color: var(--fg-2); letter-spacing: 0.01em;
+}
+
+.form__input-wrap {
+  display: flex; align-items: center;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form__input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 12%, transparent);
+}
+
+.form__input {
+  flex: 1; font-family: var(--font-body); font-size: 0.9rem;
+  padding: 0.75rem 1rem; background: transparent; border: none;
+  color: var(--fg); outline: none; min-width: 0;
+}
+.form__input::placeholder { color: var(--muted); }
+
+.form__toggle-pw {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: none; border: none; color: var(--muted);
+  font-size: 1rem; cursor: pointer; transition: color 0.2s;
+}
+.form__toggle-pw:hover { color: var(--fg); }
+
+.form__error {
+  font-size: 0.75rem; color: var(--negative);
+  min-height: 0; overflow: hidden; transition: min-height 0.2s, margin 0.2s;
+}
+.form__error.visible { min-height: 1.2rem; }
+
+.form__options {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.8rem;
+}
+.form__checkbox {
+  display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;
+}
+.form__checkbox input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 16px; height: 16px; border: 1px solid var(--border);
+  border-radius: 3px; background: var(--bg); cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0; margin: 0;
+}
+.form__checkbox input[type="checkbox"]:checked {
+  background: var(--accent); border-color: var(--accent);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8l2.5 2.5L12 5' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.form__checkbox span { color: var(--muted); }
+
+.form__forgot { color: var(--muted); font-size: 0.8rem; }
+.form__forgot:hover { color: var(--accent); }
+
+.form__submit { margin-top: var(--space-sm); }
+
+/* --- Divider --------------------------------------------- */
+.form__divider {
+  display: flex; align-items: center; gap: var(--space-lg);
+  margin: var(--space-sm) 0;
+}
+.form__divider::before,
+.form__divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.form__divider span { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+
+/* --- OAuth buttons --------------------------------------- */
+.form__oauth { display: flex; flex-direction: column; gap: var(--space-sm); }
+.btn--oauth {
+  display: flex; align-items: center; justify-content: center; gap: var(--space-sm);
+  width: 100%; padding: 0.65rem 1rem;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); color: var(--fg-2);
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+  cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.btn--oauth:hover {
+  border-color: var(--accent-dim); color: var(--fg); background: var(--surface);
+}
+
+/* --- Register link --------------------------------------- */
+.login__register {
+  text-align: center; margin-top: var(--space-lg); font-size: 0.85rem; color: var(--fg-2);
+}
+.login__register a { font-weight: 500; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { padding: var(--space-2xl) 0 var(--space-lg); border-top: 1px solid var(--border); }
+.footer__inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+.footer__brand { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.footer__brand span { color: var(--accent); }
+.footer__tagline { font-size: 0.8rem; color: var(--muted); }
+.footer__links { display: flex; gap: var(--space-lg); list-style: none; }
+.footer__links a { font-size: 0.8rem; color: var(--muted); transition: color 0.2s; }
+.footer__links a:hover { color: var(--fg); text-decoration: none; }
+.footer__copy {
+  font-size: 0.75rem; color: var(--muted); white-space: nowrap;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet & below */
+@media (max-width: 768px) {
+  .login { padding: var(--space-2xl) var(--space-lg); min-height: calc(100vh - 52px - 140px); }
+
+  /* Hide desktop nav, show hamburger */
+  .nav { display: none; }
+  .hamburger { display: flex; }
+
+  .header__inner { gap: var(--space-sm); padding: var(--space-sm) var(--space-lg); }
+
+  .login__card { padding: var(--space-xl) var(--space-lg); }
+
+  .footer__inner { flex-direction: column; text-align: center; }
+}
+
+/* Mobile small */
+@media (max-width: 480px) {
+  .container { padding: 0 var(--space-lg); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="top">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">lapak<span>.click</span></a>
+
+    <nav class="nav">
+      <a href="index.html" class="nav__link">Beranda</a>
+      <a href="index.html#features" class="nav__link">Fitur</a>
+      <a href="index.html#how-it-works" class="nav__link">Cara Kerja</a>
+      <a href="index.html#faq" class="nav__link">FAQ</a>
+      <a href="login.html" class="nav__link nav__link--active">Masuk</a>
+    </nav>
+
+    <button type="button" class="hamburger" id="hamburger" aria-label="Buka menu">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     OFF-CANVAS MOBILE MENU
+     ============================================================ -->
+<div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+<aside class="offcanvas" id="offcanvas">
+  <div class="offcanvas__head">
+    <span class="offcanvas__logo">lapak<span>.click</span></span>
+    <button type="button" class="offcanvas__close" id="offcanvasClose" aria-label="Tutup menu">✕</button>
+  </div>
+
+  <div class="offcanvas__nav">
+    <a href="index.html" class="offcanvas__link">Beranda</a>
+    <a href="index.html#features" class="offcanvas__link">Fitur</a>
+    <a href="index.html#how-it-works" class="offcanvas__link">Cara Kerja</a>
+    <a href="index.html#faq" class="offcanvas__link">FAQ</a>
+    <a href="login.html" class="offcanvas__link" style="color:var(--accent)">Masuk</a>
+  </div>
+</aside>
+
+<!-- ============================================================
+     LOGIN
+     ============================================================ -->
+<main class="login" data-od-id="login">
+  <div class="login__card">
+    <div class="login__head">
+      <h1>Masuk</h1>
+      <p>Masuk ke akun <span class="text-mono">lapak.click</span> Anda</p>
+    </div>
+
+    <form class="form" id="loginForm" novalidate>
+      <div class="form__group">
+        <label class="form__label" for="email">Email atau Username</label>
+        <div class="form__input-wrap">
+          <input type="text" class="form__input" id="email" placeholder="nama@email.com" autocomplete="username" spellcheck="false" required>
+        </div>
+        <div class="form__error" id="emailError"></div>
+      </div>
+
+      <div class="form__group">
+        <label class="form__label" for="password">Password</label>
+        <div class="form__input-wrap">
+          <input type="password" class="form__input" id="password" placeholder="Masukkan password" autocomplete="current-password" required>
+          <button type="button" class="form__toggle-pw" id="togglePw" aria-label="Tampilkan password">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><title>Lihat password</title><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="form__error" id="passwordError"></div>
+      </div>
+
+      <div class="form__options">
+        <label class="form__checkbox">
+          <input type="checkbox" checked>
+          <span>Ingat saya</span>
+        </label>
+        <a href="#" class="form__forgot">Lupa password?</a>
+      </div>
+
+      <div class="form__submit">
+        <button type="submit" class="btn btn--primary btn--full">Masuk</button>
+      </div>
+
+      <div class="form__divider">
+        <span>atau</span>
+      </div>
+
+      <div class="form__oauth">
+        <button type="button" class="btn--oauth">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><title>Google</title><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Masuk dengan Google
+        </button>
+      </div>
+    </form>
+
+    <p class="login__register">
+      Belum punya akun? <a href="#">Daftar Sekarang</a>
+    </p>
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div class="footer__brand">lapak<span>.click</span></div>
+      <div class="footer__tagline">Subdomain gratis untuk UMKM Indonesia</div>
+    </div>
+    <ul class="footer__links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="index.html#features">Fitur</a></li>
+      <li><a href="index.html#how-it-works">Cara Kerja</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="login.html">Masuk</a></li>
+    </ul>
+    <div class="footer__copy">&copy; 2026 lapak.click</div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* --- Hamburger menu ------------------------------------ */
+  var hamburger = document.getElementById('hamburger');
+  var offcanvas = document.getElementById('offcanvas');
+  var overlay = document.getElementById('offcanvasOverlay');
+  var closeBtn = document.getElementById('offcanvasClose');
+
+  function openMenu() {
+    hamburger.classList.add('open');
+    offcanvas.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    offcanvas.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  /* --- Password toggle ----------------------------------- */
+  var togglePw = document.getElementById('togglePw');
+  var passwordInput = document.getElementById('password');
+
+  togglePw.addEventListener('click', function() {
+    var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    togglePw.innerHTML = type === 'password'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Lihat password</title><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Sembunyikan password</title><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+  });
+
+  /* --- Form validation ----------------------------------- */
+  var loginForm = document.getElementById('loginForm');
+  var emailInput = document.getElementById('email');
+  var emailError = document.getElementById('emailError');
+  var passwordError = document.getElementById('passwordError');
+
+  loginForm.addEventListener('submit', function(e) {
+    var isValid = true;
+
+    /* Validate email */
+    var emailVal = emailInput.value.trim();
+    if (!emailVal) {
+      emailError.textContent = 'Email atau username harus diisi';
+      emailError.classList.add('visible');
+      isValid = false;
+    } else {
+      emailError.textContent = '';
+      emailError.classList.remove('visible');
+    }
+
+    /* Validate password */
+    var passwordVal = passwordInput.value;
+    if (!passwordVal) {
+      passwordError.textContent = 'Password harus diisi';
+      passwordError.classList.add('visible');
+      isValid = false;
+    } else if (passwordVal.length < 6) {
+      passwordError.textContent = 'Password minimal 6 karakter';
+      passwordError.classList.add('visible');
+      isValid = false;
+    } else {
+      passwordError.textContent = '';
+      passwordError.classList.remove('visible');
+    }
+
+    if (!isValid) {
+      e.preventDefault();
+    }
+    /* If valid — form submits (to nowhere for now, real action later) */
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+Task 1 — Environment Variables Evidence
+========================================
+Date: 2026-07-03
+
+File: .env.local.example
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# Cloudflare
+CLOUDFLARE_API_TOKEN=
+CLOUDFLARE_ZONE_ID=
+
+Verification:
+1. NEXT_PUBLIC_SUPABASE_URL — found ✓
+2. NEXT_PUBLIC_SUPABASE_ANON_KEY — found ✓
+3. SUPABASE_SERVICE_ROLE_KEY — found ✓
+4. CLOUDFLARE_API_TOKEN — found ✓
+5. CLOUDFLARE_ZONE_ID — found ✓

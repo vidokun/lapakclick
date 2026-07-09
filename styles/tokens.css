@@ -1,0 +1,40 @@
+/* ============================================================
+   lapak.click — Design Tokens
+   Source of truth for all design values
+   Midnight Purple palette
+   ============================================================ */
+
+:root {
+  /* --- Colors --- */
+  --bg:         oklch(10% 0.018 280);
+  --surface:    oklch(14% 0.022 280);
+  --surface-2:  oklch(18% 0.025 280);
+  --fg:         oklch(92% 0.008 280);
+  --fg-2:       oklch(75% 0.010 280);
+  --muted:      oklch(55% 0.015 280);
+  --border:     oklch(22% 0.025 280);
+  --accent:     oklch(68% 0.18 285);
+  --accent-dim: oklch(55% 0.14 285);
+  --accent-gl:  oklch(78% 0.20 290);
+  --positive:   oklch(65% 0.18 150);
+  --negative:   oklch(60% 0.18 25);
+
+  /* --- Typography --- */
+  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-body:    'Geist', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  /* --- Spacing --- */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  0.75rem;
+  --space-lg:  1rem;
+  --space-xl:  1.5rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* --- Border Radius --- */
+  --radius:    4px;
+  --radius-lg: 8px;
+}

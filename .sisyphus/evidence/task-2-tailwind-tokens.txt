@@ -1,0 +1,25 @@
+Task 2 — Design Token Extraction & CSS System
+==============================================
+Date: 2026-07-03
+
+Evidence:
+- Created styles/tokens.css with ALL 26 CSS custom properties from design HTML
+  (12 color tokens: bg, surface, surface-2, fg, fg-2, muted, border, accent, accent-dim, accent-gl, positive, negative
+   3 font tokens: display, body, mono
+   8 spacing tokens: xs, sm, md, lg, xl, 2xl, 3xl, 4xl
+   2 radius tokens: radius, radius-lg)
+
+- Modified app/globals.css with:
+  - @import for Cabinet Grotesk (Fontshare CDN)
+  - @import for styles/tokens.css
+  - @theme block with 12 color tokens, 3 font tokens, 2 radius tokens
+  - Body styles: dark bg oklch(10% 0.018 280), fg oklch(92% 0.008 280), Geist font
+
+- Modified app/layout.tsx:
+  - Kept Geist/Geist_Mono next/font imports
+  - Added --font-display CSS variable fallback
+  - body uses Tailwind bg-bg/text-fg classes
+  - Metadata updated for lapak.click branding
+
+- Build: npm run build passes with exit code 0, no warnings
+  (Fixed @import ordering: standard CSS imports before @import "tailwindcss")
