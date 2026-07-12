@@ -4,34 +4,29 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Apa itu lapak.click?",
+    question: "Apakah benar-benar gratis?",
     answer:
-      "lapak.click adalah layanan subdomain gratis untuk UMKM Indonesia. Kami menyediakan subdomain .lapak.click yang bisa kamu arahkan ke hosting favorit. Kami hanya mengelola DNS — website dan hosting adalah tanggung jawab kamu.",
+      "Ya, 100% gratis tanpa biaya tersembunyi. Tidak ada biaya registrasi, biaya bulanan, atau biaya tahunan. Subdomain .lapak.click gratis untuk selama-lamanya bagi UMKM Indonesia.",
   },
   {
-    question: "Berapa biayanya?",
+    question: "Berapa lama proses claim?",
     answer:
-      "Gratis! Tidak ada biaya registrasi, biaya bulanan, atau biaya tersembunyi. Subdomain .lapak.click gratis selamanya untuk UMKM Indonesia.",
+      "Kurang dari 1 menit! Setelah Anda mendaftar dan verifikasi email, subdomain langsung aktif. DNS terkonfigurasi otomatis sehingga website Anda bisa diakses dalam hitungan menit.",
   },
   {
-    question: "Bagaimana cara mengarahkan subdomain ke hosting saya?",
+    question: "Website apa yang bisa dipasang di subdomain?",
     answer:
-      "Setelah claim subdomain, masuk ke dashboard dan masukkan alamat IP (record A) atau nama domain (record CNAME) dari hosting kamu. DNS akan aktif dalam hitungan menit. Panduan lengkap tersedia di dashboard.",
+      "Apapun yang bisa diakses via browser — landing page, toko online sederhana, portofolio, blog, link bio, hingga website statis HTML. Subdomain .lapak.click siap menampung halaman Anda.",
   },
   {
-    question: "Apakah saya perlu punya website dulu?",
+    question: "Apakah ada limit traffic atau pengunjung?",
     answer:
-      "Ya, kamu perlu memiliki website yang dihosting di suatu tempat — bisa di hosting berbayar, hosting gratis, atau VPS. lapak.click hanya menyediakan subdomain dan mengelola DNS-nya.",
+      "Tidak ada limit traffic untuk website UMKM. Silakan promosikan subdomain Anda di media sosial, WhatsApp, dan Google — semua pengunjung bisa mengakses tanpa hambatan.",
   },
   {
-    question: "Berapa lama DNS tersebar?",
+    question: "Bagaimana cara memulainya?",
     answer:
-      "DNS biasanya aktif dalam 1-5 menit setelah konfigurasi, meskipun dalam beberapa kasus bisa memakan waktu hingga 24 jam tergantung penyedia layanan internet.",
-  },
-  {
-    question: "Apakah SSL disediakan?",
-    answer:
-      "SSL adalah tanggung jawab hosting Anda. Kami menyediakan subdomain dan DNS. Jika hosting Anda mendukung SSL (seperti Let's Encrypt), website Anda akan aman dengan HTTPS.",
+      "Cukup cek ketersediaan nama subdomain di atas, lalu daftar. Verifikasi email, upload website, dan selesai! Panduan lengkap tersedia setelah Anda mendaftar.",
   },
 ];
 

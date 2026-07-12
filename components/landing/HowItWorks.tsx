@@ -1,52 +1,56 @@
 const steps = [
   {
     number: "01",
-    title: "Pilih Nama Subdomain",
+    title: "Cek Ketersediaan",
     description:
-      "Cari dan pilih nama subdomain yang kamu inginkan. Pastikan masih tersedia dan sesuai dengan brand usaha kamu.",
+      "Masukkan nama yang diinginkan dan lihat apakah subdomain tersebut tersedia untuk Anda claim.",
   },
   {
     number: "02",
-    title: "Arahkan ke Hosting Kamu",
+    title: "Daftar Akun",
     description:
-      "Arahkan subdomain ke server hosting favorit kamu. Cukup masukkan alamat IP atau CNAME tujuan di dashboard.",
+      "Isi data diri — hanya butuh 1 menit. Verifikasi email, dan subdomain siap digunakan.",
   },
   {
     number: "03",
-    title: "Konfigurasi DNS",
+    title: "Upload Website",
     description:
-      "Atur pengaturan DNS sesuai kebutuhan. Tambahkan record A, CNAME, MX, atau TXT dengan mudah.",
+      "Upload file website Anda atau arahkan ke layanan hosting favorit. DNS sudah otomatis.",
   },
   {
     number: "04",
-    title: "Selesai! Subdomain Siap Digunakan",
+    title: "Online Sekarang!",
     description:
-      "Subdomain kamu sudah aktif dan terhubung dengan hostingmu. Website UMKM-mu siap go digital!",
+      "Website Anda live di namausaha.lapak.click. Bagikan ke pelanggan sekarang!",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section className="border-b border-border py-24" id="cara-kerja">
+    <section className="border-b border-border py-24" id="how-it-works">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent mb-3">
           Cara Kerja
         </p>
         <h2 className="font-display font-bold text-fg text-[clamp(1.4rem,3vw+0.5rem,2.4rem)] tracking-[-0.025em] mb-10">
           Mulai dalam{" "}
-          <span className="text-accent">4 Langkah</span>
+          <span className="text-accent">3 Langkah</span>
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           {steps.map((step, i) => (
             <div key={step.number} className="relative pt-6">
-              <div className="font-display text-3xl font-extrabold text-accent-dim/60 leading-none mb-3 tabular-nums">
+              <div className="font-display text-4xl font-extrabold text-accent-dim/60 leading-none mb-3 tabular-nums">
                 {step.number}
               </div>
               <h3 className="font-display font-bold text-fg mb-2 text-base">
                 {step.title}
               </h3>
               <p className="text-sm text-fg-2 leading-relaxed">
-                {step.description}
+                {step.title === "Online Sekarang!" ? (
+                  <>Website Anda live di <code className="font-mono text-[0.8rem] text-fg bg-bg px-1 py-0.5 rounded border border-border">namausaha.lapak.click</code>. Bagikan ke pelanggan sekarang!</>
+                ) : (
+                  step.description
+                )}
               </p>
               {i < steps.length - 1 && (
                 <div
