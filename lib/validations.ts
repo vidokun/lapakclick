@@ -54,7 +54,7 @@ export const createDnsRecordSchema = z.object({
   type: recordTypeEnum,
   name: z.string().min(1, "Nama record tidak boleh kosong"),
   value: z.string().min(1, "Nilai record tidak boleh kosong"),
-  ttl: z.number().int().min(60).max(86400).default(120),
+  ttl: z.number().int().min(1).max(86400).default(1),
   priority: z.number().int().min(0).max(65535).optional(),
 }).superRefine((data, ctx) => {
   if (data.type === "MX" && data.priority === undefined) {
@@ -70,7 +70,7 @@ export const updateDnsRecordSchema = z.object({
   type: recordTypeEnum.optional(),
   name: z.string().min(1, "Nama record tidak boleh kosong").optional(),
   value: z.string().min(1, "Nilai record tidak boleh kosong").optional(),
-  ttl: z.number().int().min(60).max(86400).optional(),
+  ttl: z.number().int().min(1).max(86400).optional(),
   priority: z.number().int().min(0).max(65535).optional(),
 }).superRefine((data, ctx) => {
   if (data.type === "MX" && data.priority === undefined) {

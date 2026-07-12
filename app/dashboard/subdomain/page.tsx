@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo, useRef } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Table, TableColumn } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
@@ -26,17 +26,12 @@ export default function SubdomainPage() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
-  const fetched = useRef(false);
-  
   // Delete Modal state
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deletingSubdomain, setDeletingSubdomain] = useState<Subdomain | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    if (fetched.current) return;
-    fetched.current = true;
-    
     let mounted = true;
     
     const fetchSubdomains = async () => {
@@ -45,7 +40,15 @@ export default function SubdomainPage() {
         const res = await fetch("/api/subdomains");
         if (!res.ok) throw new Error("Failed to fetch subdomains");
         const data = await res.json();
-        if (mounted) setSubdomains(data.data || []);
+        if (mounted) {
+          if (Array.isArray(data.data)) {
+            setSubdomains(data.data);
+          } else if (Array.isArray(data)) {
+            setSubdomains(data);
+          } else {
+            setSubdomains([]);
+          }
+        }
       } catch (error) {
         console.error(error);
         if (mounted) {
@@ -67,8 +70,8 @@ export default function SubdomainPage() {
   }, []);
 
   const filteredData = useMemo(() => {
-    return subdomains.filter((sub) => {
-      const matchesSearch = sub.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return (Array.isArray(subdomains) ? subdomains : []).filter((sub) => {
+      const matchesSearch = sub.name?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false;
       const matchesFilter =
         statusFilter === "all" ||
         (statusFilter === "active" && sub.status === "active") ||
@@ -189,7 +192,7 @@ export default function SubdomainPage() {
         </div>
       </div>
 
-      <Table
+      <Table<Record<string, unknown>>
         columns={columns}
         data={filteredData as unknown as Record<string, unknown>[]}
         loading={loading}
@@ -198,8 +201,8 @@ export default function SubdomainPage() {
             ? "Tidak ada subdomain yang cocok dengan pencarian."
             : "Belum ada subdomain. Klaim sekarang!"
         }
-        renderRow={(row: unknown) => {
-          const sub = row as Subdomain;
+        renderRow={(row: Record<string, unknown>) => {
+          const sub = row as unknown as Subdomain;
           return (
             <tr key={sub.id} className="border-b border-border hover:bg-surface-2/50 transition-colors">
               <td className="px-4 py-3">

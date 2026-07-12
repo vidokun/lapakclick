@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/server";
 import { createDnsRecordSchema, updateDnsRecordSchema } from "@/lib/validations";
 import { apiError, handleApiError } from "@/lib/api-utils";
 import { rateLimit } from "@/lib/rate-limit";
@@ -19,9 +19,7 @@ const actionSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabase = await createClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -57,18 +55,28 @@ export async function POST(req: NextRequest) {
 
     switch (action) {
       case "list_records": {
-        const cloudflareClient = new CloudflareClient();
-        const records = await cloudflareClient.listDnsRecords();
-        const filteredRecords = records.filter((r: any) => r.name.endsWith(fullDomainName));
-        return NextResponse.json({ data: filteredRecords });
+        try {
+          const cloudflareClient = new CloudflareClient();
+          const records = await cloudflareClient.listDnsRecords();
+          const filteredRecords = records ? records.filter((r: any) => r.name.endsWith(fullDomainName)) : [];
+          return NextResponse.json({ data: filteredRecords });
+        } catch (error: any) {
+          console.error("Cloudflare list error:", error);
+          // If Cloudflare fails (e.g. invalid token), return empty array so UI doesn't crash
+          return NextResponse.json({ data: [] });
+        }
       }
 
       case "create_record": {
         const createData = createDnsRecordSchema.parse(body);
+        
+        const isRootTarget = createData.name === "@" || createData.name === "";
+        const recordName = isRootTarget ? fullDomainName : `${createData.name}.${fullDomainName}`;
+
         const cloudflareClient = new CloudflareClient();
         const newRecord = await cloudflareClient.createDnsRecord({
           type: createData.type,
-          name: createData.name === "@" ? fullDomainName : `${createData.name}.${fullDomainName}`,
+          name: recordName,
           content: createData.value,
           ttl: createData.ttl,
           priority: createData.priority,
@@ -106,7 +114,7 @@ export async function POST(req: NextRequest) {
         const cloudflareClient = new CloudflareClient();
         const updatedRecord = await cloudflareClient.updateDnsRecord(existingRecord.cf_record_id, {
           type: (updateData.type || existingRecord.type),
-          name: updateData.name ? (updateData.name === "@" ? fullDomainName : `${updateData.name}.${fullDomainName}`) : existingRecord.name,
+          name: updateData.name ? (updateData.name === "@" || updateData.name === "" ? fullDomainName : `${updateData.name}.${fullDomainName}`) : existingRecord.name,
           content: updateData.value || existingRecord.value,
           ttl: updateData.ttl || existingRecord.ttl,
           priority: updateData.priority || existingRecord.priority,

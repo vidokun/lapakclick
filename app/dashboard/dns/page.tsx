@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Table, TableColumn } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
 import { Modal } from "@/components/ui/Modal";
@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Toast } from "@/components/ui/Toast";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { Plus, Edit2, Trash2 } from "lucide-react";
+import { Plus, Edit2, Trash2, ShieldCheck, Globe } from "lucide-react";
 
 type Subdomain = {
   id: string;
@@ -42,18 +42,15 @@ export default function DnsManagementPage() {
   
   const [currentRecord, setCurrentRecord] = useState<Partial<DnsRecord>>({
     type: "A",
-    name: "",
+    name: "@",
     content: "",
     ttl: 1,
     proxied: false
   });
   
   const [formLoading, setFormLoading] = useState(false);
-  const fetchedSubdomains = useRef(false);
 
   useEffect(() => {
-    if (fetchedSubdomains.current) return;
-    fetchedSubdomains.current = true;
     fetchSubdomains();
   }, []);
 
@@ -72,7 +69,7 @@ export default function DnsManagementPage() {
       if (!res.ok) throw new Error("Gagal memuat subdomain");
       const data = await res.json();
       
-      const activeSubdomains = data.subdomains || [];
+      const activeSubdomains = data.data || [];
       setSubdomains(activeSubdomains);
       
       if (activeSubdomains.length > 0) {
@@ -101,7 +98,7 @@ export default function DnsManagementPage() {
       if (!res.ok) throw new Error("Gagal memuat catatan DNS");
       const data = await res.json();
       
-      const formattedRecords: DnsRecord[] = (data.result || []).map((r: any) => ({
+      const formattedRecords: DnsRecord[] = (data.data || []).map((r: any) => ({
         id: r.id,
         type: r.type,
         name: r.name,
@@ -133,7 +130,7 @@ export default function DnsManagementPage() {
           action: "create_record",
           subdomainId: selectedSubdomainId,
           type: currentRecord.type,
-          name: currentRecord.name,
+          name: "@", // Always force @ for A/CNAME targeting
           value: currentRecord.content,
           ttl: currentRecord.ttl,
           priority: currentRecord.priority
@@ -142,12 +139,12 @@ export default function DnsManagementPage() {
       
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.error?.message || "Gagal membuat record");
+        throw new Error(errorData.error?.message || "Gagal mengarahkan subdomain");
       }
       
-      setToastMessage({ type: "success", message: "Catatan DNS berhasil ditambahkan" });
+      setToastMessage({ type: "success", message: "Subdomain berhasil diarahkan" });
       setIsAddModalOpen(false);
-      setCurrentRecord({ type: "A", name: "", content: "", ttl: 1, proxied: false });
+      setCurrentRecord({ type: "A", name: "@", content: "", ttl: 1, proxied: false });
       fetchRecords(selectedSubdomainId);
     } catch (err: any) {
       setToastMessage({ type: "error", message: err.message });
@@ -170,7 +167,7 @@ export default function DnsManagementPage() {
           subdomainId: selectedSubdomainId,
           recordId: currentRecord.id,
           type: currentRecord.type,
-          name: currentRecord.name,
+          name: currentRecord.type === "TXT" ? currentRecord.name : "@", // Allow names only for TXT
           value: currentRecord.content,
           ttl: currentRecord.ttl,
           priority: currentRecord.priority
@@ -179,10 +176,10 @@ export default function DnsManagementPage() {
       
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.error?.message || "Gagal memperbarui record");
+        throw new Error(errorData.error?.message || "Gagal memperbarui tujuan");
       }
       
-      setToastMessage({ type: "success", message: "Catatan DNS berhasil diperbarui" });
+      setToastMessage({ type: "success", message: "Tujuan berhasil diperbarui" });
       setIsEditModalOpen(false);
       fetchRecords(selectedSubdomainId);
     } catch (err: any) {
@@ -209,10 +206,10 @@ export default function DnsManagementPage() {
       
       if (!res.ok) {
         const errorData = await res.json();
-        throw new Error(errorData.error?.message || "Gagal menghapus record");
+        throw new Error(errorData.error?.message || "Gagal menghapus tujuan");
       }
       
-      setToastMessage({ type: "success", message: "Catatan DNS berhasil dihapus" });
+      setToastMessage({ type: "success", message: "Arah tujuan berhasil dihapus" });
       setIsDeleteModalOpen(false);
       fetchRecords(selectedSubdomainId);
     } catch (err: any) {
@@ -223,7 +220,14 @@ export default function DnsManagementPage() {
   };
 
   const openEditModal = (record: DnsRecord) => {
-    setCurrentRecord(record);
+    // If it's the root domain A/CNAME record, hide the name field by ensuring it's @ 
+    // (though our UI will handle hiding the name input for A/CNAME based on record type logic)
+    setCurrentRecord({
+      ...record,
+      name: record.name.startsWith(subdomains.find(s => s.id === selectedSubdomainId)?.name || "") 
+        ? "@" 
+        : record.name
+    });
     setIsEditModalOpen(true);
   };
 
@@ -238,16 +242,12 @@ export default function DnsManagementPage() {
       label: "Tipe",
     },
     {
-      key: "name",
-      label: "Nama",
-    },
-    {
       key: "content",
-      label: "Nilai",
+      label: "Tujuan / Nilai",
     },
     {
-      key: "ttl",
-      label: "TTL",
+      key: "name",
+      label: "Keterangan",
     },
     {
       key: "actions",
@@ -255,34 +255,42 @@ export default function DnsManagementPage() {
     },
   ];
 
-  const renderRow = (record: Record<string, any>) => {
+  const renderRow = (record: Record<string, unknown>) => {
+    const r = record as DnsRecord;
+    const isTargetRecord = r.type === "A" || r.type === "CNAME";
+    const selectedSub = subdomains.find(s => s.id === selectedSubdomainId);
+    const domainName = selectedSub ? `${selectedSub.name}.lapak.click` : "";
+
     return (
-      <tr key={record.id} className="border-b border-border last:border-0 hover:bg-surface-2/50 transition-colors">
+      <tr key={r.id} className="border-b border-border last:border-0 hover:bg-surface-2/50 transition-colors">
         <td className="px-4 py-3 whitespace-nowrap">
           <Badge variant={
-            record.type === 'CNAME' ? 'success' : 
-            record.type === 'TXT' ? 'warning' : 'info'
+            r.type === 'CNAME' ? 'success' : 
+            r.type === 'A' ? 'info' :
+            r.type === 'TXT' ? 'warning' : 'info'
           }>
-            {record.type}
+            {isTargetRecord ? `Target (${r.type})` : r.type}
           </Badge>
         </td>
         <td className="px-4 py-3">
-          <span className="font-mono text-sm text-fg">{record.name}</span>
+          <div className="flex items-center gap-2">
+            {r.type === "A" ? <Globe className="w-4 h-4 text-muted" /> : null}
+            <span className="font-mono text-sm text-fg truncate max-w-[200px] block" title={r.content}>
+              {r.content}
+            </span>
+          </div>
         </td>
         <td className="px-4 py-3">
-          <span className="font-mono text-sm text-fg truncate max-w-[200px] block" title={record.content}>
-            {record.content}
+          <span className="text-sm text-muted">
+             {isTargetRecord ? `Mengarahkan ${domainName} ke tujuan` : r.name}
           </span>
-        </td>
-        <td className="px-4 py-3 whitespace-nowrap">
-          <span className="text-sm text-muted">{record.ttl === 1 ? 'Otomatis' : `${record.ttl}s`}</span>
         </td>
         <td className="px-4 py-3 whitespace-nowrap text-right">
           <div className="flex justify-end gap-2">
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => openEditModal(record as DnsRecord)}
+              onClick={() => openEditModal(r)}
               aria-label="Edit record"
             >
               <Edit2 className="w-4 h-4 text-muted" />
@@ -290,7 +298,7 @@ export default function DnsManagementPage() {
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => openDeleteModal(record as DnsRecord)}
+              onClick={() => openDeleteModal(r)}
               aria-label="Hapus record"
             >
               <Trash2 className="w-4 h-4 text-negative" />
@@ -301,26 +309,17 @@ export default function DnsManagementPage() {
     );
   };
 
+  const selectedSub = subdomains.find(s => s.id === selectedSubdomainId);
+  const domainName = selectedSub ? `${selectedSub.name}.lapak.click` : "";
+  const hasTargetRecord = records.some(r => r.type === "A" || r.type === "CNAME");
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-display font-bold text-fg">Manajemen DNS</h1>
-          <p className="text-muted mt-1">Kelola catatan DNS untuk subdomain Anda.</p>
+          <h1 className="text-2xl font-display font-bold text-fg">Arahkan Subdomain</h1>
+          <p className="text-muted mt-1">Atur tujuan subdomain Anda (IP Address atau Alias/CNAME).</p>
         </div>
-        
-        {subdomains.length > 0 && (
-          <Button 
-            variant="primary" 
-            onClick={() => {
-              setCurrentRecord({ type: "A", name: "", content: "", ttl: 1, proxied: false });
-              setIsAddModalOpen(true);
-            }}
-          >
-            <Plus className="w-4 h-4 mr-2" />
-            Tambah Record
-          </Button>
-        )}
       </div>
 
       {toastMessage && (
@@ -338,10 +337,10 @@ export default function DnsManagementPage() {
       ) : subdomains.length === 0 ? (
         <EmptyState
           title="Tidak ada subdomain"
-          description="Klaim subdomain terlebih dahulu untuk mengelola DNS."
+          description="Klaim subdomain terlebih dahulu untuk dapat mengarahkannya."
         />
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div className="bg-surface p-4 rounded-4 border border-border flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <label htmlFor="subdomain-select" className="text-sm font-medium text-fg-2 whitespace-nowrap">
               Pilih Subdomain:
@@ -358,88 +357,102 @@ export default function DnsManagementPage() {
             </select>
           </div>
 
-          <Table
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-2">
+            <h2 className="text-lg font-medium text-fg">Tujuan {domainName}</h2>
+            <div className="flex gap-2">
+              <Button 
+                variant="ghost" 
+                onClick={() => {
+                  setCurrentRecord({ type: "TXT", name: "", content: "", ttl: 1, proxied: false });
+                  setIsAddModalOpen(true);
+                }}
+              >
+                <ShieldCheck className="w-4 h-4 mr-2" />
+                Tambah TXT Record
+              </Button>
+              {!hasTargetRecord && (
+                <Button 
+                  variant="primary" 
+                  onClick={() => {
+                    setCurrentRecord({ type: "A", name: "@", content: "", ttl: 1, proxied: false });
+                    setIsAddModalOpen(true);
+                  }}
+                >
+                  <Plus className="w-4 h-4 mr-2" />
+                  Arahkan Subdomain
+                </Button>
+              )}
+            </div>
+          </div>
+
+          <Table<Record<string, unknown>>
             columns={columns}
-            data={records}
+            data={records as unknown as Record<string, unknown>[]}
             loading={recordsLoading}
-            emptyMessage="Belum ada catatan DNS untuk subdomain ini."
+            emptyMessage={`Belum ada arah tujuan untuk ${domainName}. Klik "Arahkan Subdomain" untuk mengatur.`}
             renderRow={renderRow}
           />
         </div>
       )}
 
+      {/* ADD MODAL */}
       <Modal
         open={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
-        title="Tambah DNS Record"
+        title={currentRecord.type === "TXT" ? "Tambah TXT Record (Verifikasi)" : "Arahkan Subdomain"}
       >
         <form onSubmit={handleCreateRecord} className="space-y-4">
+          <div className="bg-surface-2 p-3 rounded text-sm text-fg-2 mb-4 border border-border">
+            {currentRecord.type === "TXT" 
+              ? "Gunakan TXT record untuk verifikasi layanan (seperti Google Search Console)."
+              : `Pilih tipe A untuk mengarahkan ke IP Address (VPS/Server), atau CNAME untuk mengarahkan ke layanan pihak ketiga (Vercel, Blogger, dsb).`}
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-fg mb-1">Tipe</label>
+              <label className="block text-sm font-medium text-fg mb-1">Tipe Tujuan</label>
               <select
                 value={currentRecord.type}
                 onChange={(e) => setCurrentRecord({...currentRecord, type: e.target.value})}
                 className="block w-full rounded-4 border border-border py-1.5 pl-3 pr-10 text-fg bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 sm:text-sm sm:leading-6"
+                disabled={currentRecord.type === "TXT"} // Lock if opened specifically for TXT
               >
-                <option value="A">A</option>
-                <option value="AAAA">AAAA</option>
-                <option value="CNAME">CNAME</option>
-                <option value="TXT">TXT</option>
-                <option value="MX">MX</option>
-                <option value="NS">NS</option>
+                {currentRecord.type === "TXT" ? (
+                  <option value="TXT">TXT Record</option>
+                ) : (
+                  <>
+                    <option value="A">IP Address (A Record)</option>
+                    <option value="CNAME">Alias (CNAME)</option>
+                  </>
+                )}
               </select>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-fg mb-1">Nama</label>
-              <Input
-                value={currentRecord.name}
-                onChange={(e) => setCurrentRecord({...currentRecord, name: e.target.value})}
-                placeholder="@ atau subdomain"
-                required
-              />
-            </div>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-fg mb-1">Konten / Nilai</label>
-            <Input
-              value={currentRecord.content}
-              onChange={(e) => setCurrentRecord({...currentRecord, content: e.target.value})}
-              placeholder="contoh: 192.0.2.1"
-              required
-            />
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-fg mb-1">TTL</label>
-              <select
-                value={currentRecord.ttl}
-                onChange={(e) => setCurrentRecord({...currentRecord, ttl: parseInt(e.target.value)})}
-                className="block w-full rounded-4 border border-border py-1.5 pl-3 pr-10 text-fg bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 sm:text-sm sm:leading-6"
-              >
-                <option value={1}>Otomatis</option>
-                <option value={120}>2 mnt</option>
-                <option value={300}>5 mnt</option>
-                <option value={600}>10 mnt</option>
-                <option value={1800}>30 mnt</option>
-                <option value={3600}>1 jam</option>
-              </select>
-            </div>
-            
-            {currentRecord.type === 'MX' && (
+            {currentRecord.type === "TXT" && (
               <div>
-                <label className="block text-sm font-medium text-fg mb-1">Prioritas</label>
+                <label className="block text-sm font-medium text-fg mb-1">Nama (Opsional)</label>
                 <Input
-                  type="number"
-                  value={currentRecord.priority || 10}
-                  onChange={(e) => setCurrentRecord({...currentRecord, priority: parseInt(e.target.value)})}
-                  min={0}
-                  max={65535}
+                  value={currentRecord.name === "@" ? "" : currentRecord.name}
+                  onChange={(e) => setCurrentRecord({...currentRecord, name: e.target.value})}
+                  placeholder="Kosongkan untuk root domain"
                 />
               </div>
             )}
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-fg mb-1">
+              {currentRecord.type === "A" ? "IP Address Tujuan" : 
+               currentRecord.type === "CNAME" ? "Domain Tujuan (Alias)" : "Nilai TXT"}
+            </label>
+            <Input
+              value={currentRecord.content}
+              onChange={(e) => setCurrentRecord({...currentRecord, content: e.target.value})}
+              placeholder={
+                currentRecord.type === "A" ? "contoh: 192.168.1.1" : 
+                currentRecord.type === "CNAME" ? "contoh: cname.vercel-dns.com" : "contoh: google-site-verification=..."
+              }
+              required
+            />
           </div>
           
           <div className="flex justify-end gap-3 mt-6">
@@ -447,84 +460,60 @@ export default function DnsManagementPage() {
               Batal
             </Button>
             <Button type="submit" variant="primary" loading={formLoading}>
-              Tambah
+              Simpan
             </Button>
           </div>
         </form>
       </Modal>
 
+      {/* EDIT MODAL */}
       <Modal
         open={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
-        title="Edit DNS Record"
+        title={currentRecord.type === "TXT" ? "Edit TXT Record" : "Edit Tujuan Subdomain"}
       >
         <form onSubmit={handleUpdateRecord} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-fg mb-1">Tipe</label>
+              <label className="block text-sm font-medium text-fg mb-1">Tipe Tujuan</label>
               <select
                 value={currentRecord.type}
                 onChange={(e) => setCurrentRecord({...currentRecord, type: e.target.value})}
                 className="block w-full rounded-4 border border-border py-1.5 pl-3 pr-10 text-fg bg-surface-2 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 sm:text-sm sm:leading-6"
+                disabled={currentRecord.type === "TXT"} // Can't change TXT to A/CNAME easily, force recreate
               >
-                <option value="A">A</option>
-                <option value="AAAA">AAAA</option>
-                <option value="CNAME">CNAME</option>
-                <option value="TXT">TXT</option>
-                <option value="MX">MX</option>
-                <option value="NS">NS</option>
+                {currentRecord.type === "TXT" ? (
+                  <option value="TXT">TXT Record</option>
+                ) : (
+                  <>
+                    <option value="A">IP Address (A Record)</option>
+                    <option value="CNAME">Alias (CNAME)</option>
+                  </>
+                )}
               </select>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-fg mb-1">Nama</label>
-              <Input
-                value={currentRecord.name}
-                onChange={(e) => setCurrentRecord({...currentRecord, name: e.target.value})}
-                placeholder="@ atau subdomain"
-                required
-              />
-            </div>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-fg mb-1">Konten / Nilai</label>
-            <Input
-              value={currentRecord.content}
-              onChange={(e) => setCurrentRecord({...currentRecord, content: e.target.value})}
-              placeholder="contoh: 192.0.2.1"
-              required
-            />
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-fg mb-1">TTL</label>
-              <select
-                value={currentRecord.ttl}
-                onChange={(e) => setCurrentRecord({...currentRecord, ttl: parseInt(e.target.value)})}
-                className="block w-full rounded-4 border border-border py-1.5 pl-3 pr-10 text-fg bg-surface focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 sm:text-sm sm:leading-6"
-              >
-                <option value={1}>Otomatis</option>
-                <option value={120}>2 mnt</option>
-                <option value={300}>5 mnt</option>
-                <option value={600}>10 mnt</option>
-                <option value={1800}>30 mnt</option>
-                <option value={3600}>1 jam</option>
-              </select>
-            </div>
-            
-            {currentRecord.type === 'MX' && (
+            {currentRecord.type === "TXT" && (
               <div>
-                <label className="block text-sm font-medium text-fg mb-1">Prioritas</label>
+                <label className="block text-sm font-medium text-fg mb-1">Nama</label>
                 <Input
-                  type="number"
-                  value={currentRecord.priority || 10}
-                  onChange={(e) => setCurrentRecord({...currentRecord, priority: parseInt(e.target.value)})}
-                  min={0}
-                  max={65535}
+                  value={currentRecord.name === "@" ? "" : currentRecord.name}
+                  onChange={(e) => setCurrentRecord({...currentRecord, name: e.target.value})}
+                  placeholder="Kosongkan untuk root domain"
                 />
               </div>
             )}
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-fg mb-1">
+              {currentRecord.type === "A" ? "IP Address Tujuan" : 
+               currentRecord.type === "CNAME" ? "Domain Tujuan (Alias)" : "Nilai TXT"}
+            </label>
+            <Input
+              value={currentRecord.content}
+              onChange={(e) => setCurrentRecord({...currentRecord, content: e.target.value})}
+              required
+            />
           </div>
           
           <div className="flex justify-end gap-3 mt-6">
@@ -538,15 +527,16 @@ export default function DnsManagementPage() {
         </form>
       </Modal>
 
+      {/* DELETE MODAL */}
       <Modal
         open={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="Hapus DNS Record"
+        title={currentRecord.type === "TXT" ? "Hapus TXT Record" : "Hapus Arah Tujuan"}
       >
         <div className="space-y-4">
           <p className="text-fg-2 text-sm">
-            Yakin ingin menghapus record <strong className="text-fg">{currentRecord.type}</strong> untuk <strong className="text-fg">{currentRecord.name}</strong>?
-            Tindakan ini tidak dapat dibatalkan dan dapat memengaruhi fungsi subdomain Anda.
+            Yakin ingin menghapus {currentRecord.type === "TXT" ? "TXT record ini" : "arah tujuan ini"}?
+            {currentRecord.type !== "TXT" && " Subdomain Anda tidak akan bisa diakses sampai Anda mengatur tujuan baru."}
           </p>
           
           <div className="flex justify-end gap-3 mt-6">
@@ -554,7 +544,7 @@ export default function DnsManagementPage() {
               Batal
             </Button>
             <Button type="button" variant="danger" loading={formLoading} onClick={handleDeleteRecord}>
-              Hapus Record
+              Hapus
             </Button>
           </div>
         </div>

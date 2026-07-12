@@ -1,0 +1,17 @@
+$ next dev
+⚠ Port 3000 is in use by process 92302, using available port 3001 instead.
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.0.100:3001
+- Environments: .env.local
+✓ Ready in 1330ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3000
+- PID:          92302
+- Dir:          /Users/dokun/Documents/VIBECODING/lapakclick
+- Log:          .next/dev/logs/next-development.log
+
+Run kill 92302 to stop it.
+[?25h
+error: script "dev" exited with code 1

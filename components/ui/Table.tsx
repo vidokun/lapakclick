@@ -106,7 +106,7 @@ export function Table<T extends Record<string, unknown>>({
             </>
           )}
 
-          {!loading && data.length === 0 && (
+          {!loading && (!data || data.length === 0) && (
             <tr>
               <td colSpan={columns.length} className="px-4 py-8">
                 <EmptyState
@@ -118,7 +118,7 @@ export function Table<T extends Record<string, unknown>>({
           )}
 
           {!loading &&
-            data.length > 0 &&
+            data && data.length > 0 &&
             data.map((row, i) => {
               if (renderRow) return renderRow(row, i);
 
