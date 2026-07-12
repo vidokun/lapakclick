@@ -1,47 +1,35 @@
-import { Globe, Server, ShieldCheck, Store, Target, Share2 } from "lucide-react";
+import { Globe, Server, Zap, Coins } from "lucide-react";
 
 const features = [
   {
     icon: Globe,
-    title: "Gratis Selamanya",
+    title: "Domain Gratis",
     description:
-      "Subdomain .lapak.click gratis untuk UMKM Indonesia. Tanpa biaya registrasi, tanpa biaya bulanan — selamanya.",
+      "Dapatkan subdomain .lapak.click gratis untuk website UMKM kamu. Tanpa biaya registrasi, tanpa biaya bulanan.",
   },
   {
     icon: Server,
-    title: "Instan & Mudah",
+    title: "DNS Mudah",
     description:
-      "Proses claim hanya 1 menit. DNS otomatis terkonfigurasi — tidak perlu setting manual yang rumit.",
+      "Kelola DNS dengan mudah melalui dashboard. Arahkan subdomain ke hosting favorit kamu dalam hitungan klik.",
   },
   {
-    icon: ShieldCheck,
-    title: "SSL Gratis",
+    icon: Zap,
+    title: "Cepat Aktif",
     description:
-      "Setiap subdomain langsung aktif dengan SSL certificate. Website Anda aman dan terpercaya untuk pengunjung.",
+      "DNS siap dalam hitungan menit. Setelah konfigurasi, subdomain langsung bisa diakses dari seluruh dunia.",
   },
   {
-    icon: Store,
-    title: "Untuk Semua UMKM",
+    icon: Coins,
+    title: "100% Gratis",
     description:
-      "Warung, kafe, toko online, jasa, kreator — semua bisa punya website profesional dengan subdomain gratis.",
+      "Tidak ada biaya tersembunyi. Semua fitur dasar gratis selamanya untuk UMKM Indonesia.",
   },
-  {
-    icon: Target,
-    title: "Branding Profesional",
-    description:
-      "Website dengan domain namausaha.lapak.click terlihat lebih profesional daripada blogspot atau wix gratis.",
-  },
-  {
-    icon: Share2,
-    title: "Mudah Dibagikan",
-    description:
-      "Link subdomain pendek dan mudah diingat. Cocok untuk dibagikan di WhatsApp, Instagram, media sosial, dan Google.",
-  }
 ];
 
 export function Features() {
   return (
-    <section className="border-b border-border py-24" id="features">
+    <section className="border-b border-border py-24" id="fitur">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent mb-3">
           Keunggulan
@@ -49,7 +37,7 @@ export function Features() {
         <h2 className="font-display font-bold text-fg text-[clamp(1.4rem,3vw+0.5rem,2.4rem)] tracking-[-0.025em] mb-8">
           Kenapa Pilih <span className="text-accent">lapak.click</span>?
         </h2>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {features.map((feature) => (
             <div
               key={feature.title}
@@ -64,11 +52,7 @@ export function Features() {
                 {feature.title}
               </h3>
               <p className="text-sm text-fg-2 leading-relaxed">
-                {feature.title === "Branding Profesional" ? (
-                  <>Website dengan domain <code className="font-mono text-[0.8rem] text-fg bg-bg px-1 py-0.5 rounded border border-border">namausaha.lapak.click</code> terlihat lebih profesional daripada blogspot atau wix gratis.</>
-                ) : (
-                  feature.description
-                )}
+                {feature.description}
               </p>
             </div>
           ))}

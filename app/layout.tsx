@@ -30,11 +30,9 @@ export default function RootLayout({
     <html
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      style={{ "--font-display": "'Cabinet Grotesk', system-ui, sans-serif" } as React.CSSProperties}
     >
-      <head>
-        <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400,900&display=swap" rel="stylesheet" />
-      </head>
-      <body className="bg-bg text-fg font-body">{children}</body>
+      <body className="bg-bg text-fg">{children}</body>
     </html>
   );
 }

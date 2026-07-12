@@ -114,13 +114,14 @@ export function Hero() {
         </div>
 
         <h1 className="font-display font-bold text-fg mx-auto max-w-[760px] mb-3 text-[clamp(2rem,5vw+0.5rem,4rem)] tracking-[-0.03em] leading-[1.15]">
-          Onlinekan Usaha Mu dengan<br />
-          <span className="text-accent">Subdomain Gratis</span>
+          Bikin website UMKM kamu profesional dengan{" "}
+          <span className="text-accent">domain gratis</span>!
         </h1>
 
         <p className="text-fg-2 mx-auto max-w-[540px] mb-8 text-[clamp(0.95rem,1.5vw+0.2rem,1.1rem)]">
-          Dapatkan subdomain <code className="font-mono text-fg">namausaha.lapak.click</code> untuk UMKM Anda.
-          Cepat, mudah, dan gratis selamanya.
+          Dapatkan subdomain{" "}
+          <code className="font-mono text-accent">namausaha.lapak.click</code>{" "}
+          gratis dan arahkan ke hosting favorit kamu — tanpa ribet, tanpa biaya.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
@@ -145,7 +146,7 @@ export function Hero() {
               type="text"
               value={inputValue}
               onChange={handleInputChange}
-              placeholder="nama-usaha"
+              placeholder="Cek ketersediaan nama subdomain..."
               className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm font-mono text-fg outline-none placeholder:text-muted placeholder:font-body"
               autoComplete="off"
               spellCheck="false"
