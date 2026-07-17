@@ -32,6 +32,17 @@ export function formatRelativeTime(dateString: string | Date): string {
   return `${diffInYears} tahun lalu`;
 }
 
+export function formatDate(dateString: string | Date): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("id-ID", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 export function truncate(str: string, length: number): string {
   if (str.length <= length) {
     return str;

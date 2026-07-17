@@ -111,6 +111,33 @@ export async function POST(request: Request) {
       );
     }
 
+    // Check blacklist
+    const { data: blacklistEntries, error: blacklistError } = await supabase
+      .from("blacklist")
+      .select("pattern");
+
+    if (blacklistError) {
+      console.error("Database error during blacklist check:", blacklistError);
+      return NextResponse.json(
+        { error: "Failed to verify subdomain availability" },
+        { status: 500 }
+      );
+    }
+
+    const isBlacklisted = blacklistEntries?.some(
+      (entry) =>
+        normalizedName === entry.pattern ||
+        normalizedName.includes(entry.pattern) ||
+        entry.pattern.includes(normalizedName)
+    );
+
+    if (isBlacklisted) {
+      return NextResponse.json(
+        { error: "Subdomain name ini tidak tersedia" },
+        { status: 403 }
+      );
+    }
+
     // Check user limit
     const { count, error: countError } = await supabase
       .from("subdomains")

@@ -57,9 +57,13 @@ export function DashboardLayoutShell({ children }: { children: ReactNode }) {
     );
   }
 
+  // Detect admin role
+  const isAdmin = user?.user_metadata?.role === "admin";
+
   // Determine active item based on pathname
   let activeItem = "overview";
   if (pathname === "/dashboard" || pathname === "/dashboard/overview") activeItem = "overview";
+  else if (pathname.includes("/dashboard/admin")) activeItem = "admin";
   else if (pathname.includes("/dashboard/subdomain/claim")) activeItem = "claim";
   else if (pathname.includes("/dashboard/subdomain")) activeItem = "subdomain";
   else if (pathname.includes("/dashboard/dns")) activeItem = "dns";
@@ -76,6 +80,7 @@ export function DashboardLayoutShell({ children }: { children: ReactNode }) {
       activeItem={activeItem} 
       user={userInfo} 
       onLogout={handleLogout} 
+      isAdmin={isAdmin}
     />
   );
 
@@ -97,6 +102,9 @@ export function DashboardLayoutShell({ children }: { children: ReactNode }) {
   } else if (activeItem === "pengaturan") {
     pageTitle = "Pengaturan";
     pageSubtitle = "Pengaturan profil dan keamanan akun";
+  } else if (activeItem === "admin") {
+    pageTitle = "Admin Panel";
+    pageSubtitle = "Kelola blacklist domain dan pengaturan sistem";
   }
 
   return (

@@ -15,3 +15,58 @@ t=2026-07-12T08:21:36+0700 lvl=eror msg="failed to reconnect session" obj=tunnel
 t=2026-07-12T08:22:06+0700 lvl=info msg="client session established" obj=tunnels.session
 t=2026-07-12T08:22:06+0700 lvl=info msg="tunnel session started" obj=tunnels.session
 t=2026-07-12T08:22:06+0700 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:3000 url=https://deviation-lettuce-dehydrate.ngrok-free.dev
+t=2026-07-13T03:13:51+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=99a78e0ea92d clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-13T03:13:51+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-13T03:13:58+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-13T03:13:58+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-13T18:39:08+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=4e674db33d7c clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-13T18:39:08+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-13T18:39:18+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-13T18:39:28+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-13T18:39:39+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-13T18:39:51+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-13T18:40:01+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-13T18:40:01+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-13T20:56:56+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=a128efe1707e clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-13T20:56:56+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-13T20:56:58+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-13T20:56:58+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-14T17:11:14+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=2a5ef8919b6c clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-14T17:11:14+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-14T17:11:24+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-14T17:11:35+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-14T17:11:35+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-16T12:40:03+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=de1b9157e24a clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-16T12:40:03+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-16T12:40:13+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-16T12:40:24+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.215.86:443: i/o timeout"
+t=2026-07-16T12:40:25+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-16T12:40:25+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-16T18:22:11+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=3ff0b8d46aa3 clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-16T18:22:11+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-16T18:22:21+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-16T18:22:21+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-16T18:22:43+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=3b49784ea32e clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-16T18:22:43+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-16T18:22:46+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-16T18:22:46+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-16T19:32:03+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=8c8b072356d4 clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-16T19:32:03+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-16T19:32:13+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.215.86:443: i/o timeout"
+t=2026-07-16T19:32:23+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 122.248.247.123:443: i/o timeout"
+t=2026-07-16T19:32:40+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to send authentication request: failed to fetch CRL. errors encountered: timed out fetching CRL"
+t=2026-07-16T19:32:52+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 54.169.118.152:443: i/o timeout"
+t=2026-07-16T19:33:06+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 54.169.118.152:443: i/o timeout"
+t=2026-07-16T19:33:24+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 54.169.118.152:443: i/o timeout"
+t=2026-07-16T19:33:50+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 54.169.118.152:443: i/o timeout"
+t=2026-07-16T19:34:27+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-16T19:34:27+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-16T19:34:51+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=4986357218d2 clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-16T19:34:51+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-16T19:35:01+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.215.86:443: i/o timeout"
+t=2026-07-16T19:35:07+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-16T19:35:07+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-17T18:27:38+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=abc6a353787b clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-17T18:27:38+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-17T18:27:46+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-17T18:27:46+0700 lvl=info msg="tunnel session started" obj=tunnels.session

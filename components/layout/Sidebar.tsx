@@ -6,6 +6,7 @@ import {
   Globe,
   PlusCircle,
   Settings2,
+  ShieldCheck,
   User,
   LogOut,
 } from "lucide-react";
@@ -16,6 +17,7 @@ export interface SidebarProps {
   user?: { name?: string; email?: string };
   onLogout?: () => void;
   className?: string;
+  isAdmin?: boolean;
 }
 
 const navItems = [
@@ -31,6 +33,7 @@ export function Sidebar({
   user,
   onLogout,
   className,
+  isAdmin = false,
 }: SidebarProps) {
   return (
     <aside
@@ -73,6 +76,23 @@ export function Sidebar({
             </Link>
           );
         })}
+        {isAdmin && (
+          <Link
+            key="admin"
+            href="/dashboard/admin"
+            className={cn(
+              "flex items-center gap-3 mx-2 px-3 py-2.5 rounded-4",
+              "text-sm font-body font-medium transition-all duration-150",
+              activeItem === "admin"
+                ? "text-accent bg-accent/10 border-l-2 border-accent"
+                : "text-fg-2 hover:text-fg hover:bg-surface-2 border-l-2 border-transparent"
+            )}
+            aria-current={activeItem === "admin" ? "page" : undefined}
+          >
+            <ShieldCheck size={16} className={cn("shrink-0", activeItem === "admin" ? "opacity-100" : "opacity-60")} />
+            Admin
+          </Link>
+        )}
       </nav>
 
       <div className="border-t border-border">
