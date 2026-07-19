@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, CheckCircle, Loader2, Search, XCircle } from "lucide-react";
+import { motion } from "framer-motion";
 import { useDebounce } from "@/hooks/use-debounce";
 import { availabilityCheckSchema } from "@/lib/validations";
 import { createClient } from "@/lib/supabase/client";
@@ -109,11 +110,16 @@ export function Hero() {
         <div className="w-[800px] h-[800px] rounded-full bg-gradient-radial from-accent/25 to-transparent opacity-40 blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Copy & CTA */}
-          <div className="text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-left"
+          >
             <div className="inline-block mb-6 px-3 py-1.5 rounded-4 text-accent font-mono text-[0.75rem] uppercase tracking-[0.1em] border border-accent/30 bg-accent/5 opacity-0 animate-fade-in-up">
               Gratis · 1 Menit · Sepuasnya
             </div>
@@ -141,10 +147,15 @@ export function Hero() {
                 Pelajari Dulu
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT COLUMN: Interactive Checker & Stats */}
-          <div className="w-full max-w-[540px] mx-auto lg:ml-auto opacity-0 animate-fade-in-up-delay-4">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="w-full max-w-[540px] mx-auto lg:ml-auto opacity-0 animate-fade-in-up-delay-4"
+          >
             
             {/* Checker Card */}
             <div className="rounded-8 border border-border bg-surface/50 backdrop-blur-md p-6 sm:p-8 shadow-2xl shadow-accent/5">
@@ -265,7 +276,7 @@ export function Hero() {
               ))}
             </div>
 
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -45,19 +46,30 @@ export function FAQ() {
   return (
     <section className="border-b border-border py-24" id="faq">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent mb-3">
-          FAQ
-        </p>
-        <h2 className="font-display font-bold text-fg text-[clamp(1.4rem,3vw+0.5rem,2.4rem)] tracking-[-0.025em] mb-8">
-          Pertanyaan{" "}
-          <span className="text-accent">Sering Ditanyakan</span>
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent mb-3">
+            FAQ
+          </p>
+          <h2 className="font-display font-bold text-fg text-[clamp(1.4rem,3vw+0.5rem,2.4rem)] tracking-[-0.025em] mb-8">
+            Pertanyaan{" "}
+            <span className="text-accent">Sering Ditanyakan</span>
+          </h2>
+        </motion.div>
         <div className="flex flex-col gap-1">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.05 }}
                 className="overflow-hidden rounded-8 border border-border bg-surface"
               >
                 <button
@@ -85,7 +97,7 @@ export function FAQ() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

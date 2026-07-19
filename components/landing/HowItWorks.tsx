@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const steps = [
   {
     number: "01",
@@ -29,16 +33,30 @@ export function HowItWorks() {
   return (
     <section className="border-b border-border py-24" id="cara-kerja">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent mb-3">
-          Cara Kerja
-        </p>
-        <h2 className="font-display font-bold text-fg text-[clamp(1.4rem,3vw+0.5rem,2.4rem)] tracking-[-0.025em] mb-10">
-          Mulai dalam{" "}
-          <span className="text-accent">4 Langkah</span>
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent mb-3">
+            Cara Kerja
+          </p>
+          <h2 className="font-display font-bold text-fg text-[clamp(1.4rem,3vw+0.5rem,2.4rem)] tracking-[-0.025em] mb-10">
+            Mulai dalam{" "}
+            <span className="text-accent">4 Langkah</span>
+          </h2>
+        </motion.div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           {steps.map((step, i) => (
-            <div key={step.number} className="relative pt-6">
+            <motion.div 
+              key={step.number} 
+              className="relative pt-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
               <div className="font-display text-3xl font-extrabold text-accent-dim/60 leading-none mb-3 tabular-nums">
                 {step.number}
               </div>
@@ -56,7 +74,7 @@ export function HowItWorks() {
                   →
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
