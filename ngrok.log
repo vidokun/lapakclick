@@ -70,3 +70,19 @@ t=2026-07-17T18:27:38+0700 lvl=eror msg="heartbeat timeout, terminating session"
 t=2026-07-17T18:27:38+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
 t=2026-07-17T18:27:46+0700 lvl=info msg="client session established" obj=tunnels.session
 t=2026-07-17T18:27:46+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-18T23:08:51+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=957140773bf7 clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-18T23:08:51+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-18T23:09:01+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-18T23:09:11+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-18T23:09:22+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2026-07-18T23:09:30+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-18T23:09:30+0700 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2026-07-18T23:28:09+0700 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=835001a3691c clientid=5823e39e65affd5bf13cd28cd9cb4d7f
+t=2026-07-18T23:28:09+0700 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=055d00591459 err="session closed"
+t=2026-07-18T23:28:19+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.87.213:443: i/o timeout"
+t=2026-07-18T23:28:29+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.87.213:443: i/o timeout"
+t=2026-07-18T23:28:40+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.87.213:443: i/o timeout"
+t=2026-07-18T23:28:52+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.87.213:443: i/o timeout"
+t=2026-07-18T23:29:06+0700 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.1.87.213:443: i/o timeout"
+t=2026-07-18T23:29:20+0700 lvl=info msg="client session established" obj=tunnels.session
+t=2026-07-18T23:29:20+0700 lvl=info msg="tunnel session started" obj=tunnels.session

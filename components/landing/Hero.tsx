@@ -100,144 +100,172 @@ export function Hero() {
   const trimmedInput = inputValue.trim();
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16 text-center" id="beranda">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-24" id="beranda">
+      {/* Animated Glow Background */}
       <div
-        className="pointer-events-none absolute -top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3"
+        className="pointer-events-none absolute -top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 animate-pulse-slow"
         aria-hidden="true"
       >
-        <div className="w-[700px] h-[700px] rounded-full bg-gradient-radial from-accent/20 to-transparent opacity-30" />
+        <div className="w-[800px] h-[800px] rounded-full bg-gradient-radial from-accent/25 to-transparent opacity-40 blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="inline-block mb-4 px-3 py-1 rounded-4 text-accent font-mono text-[0.7rem] uppercase tracking-[0.1em] border border-accent/30">
-          Gratis · 1 Menit · Sepuasnya
-        </div>
-
-        <h1 className="font-display font-bold text-fg mx-auto max-w-[760px] mb-3 text-[clamp(2rem,5vw+0.5rem,4rem)] tracking-[-0.03em] leading-[1.15]">
-          Bikin website UMKM kamu profesional dengan{" "}
-          <span className="text-accent">domain gratis</span>!
-        </h1>
-
-        <p className="text-fg-2 mx-auto max-w-[540px] mb-8 text-[clamp(0.95rem,1.5vw+0.2rem,1.1rem)]">
-          Dapatkan subdomain{" "}
-          <code className="font-mono text-accent">namausaha.lapak.click</code>{" "}
-          gratis dan arahkan ke hosting favorit kamu — tanpa ribet, tanpa biaya.
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/register"
-            className="inline-flex items-center justify-center gap-2 rounded-4 font-body font-medium whitespace-nowrap transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg px-6 py-3 text-base bg-accent text-bg hover:bg-accent-gl active:bg-accent-dim"
-          >
-            Klaim Subdomain Gratis
-            <ArrowRight size={18} />
-          </Link>
-          <Link
-            href="#fitur"
-            className="inline-flex items-center justify-center gap-2 rounded-4 font-body font-medium whitespace-nowrap transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg px-6 py-3 text-base bg-transparent text-fg hover:text-accent hover:bg-surface-2 active:bg-surface border border-border"
-          >
-            Pelajari Lebih Lanjut
-          </Link>
-        </div>
-
-        <div className="mx-auto mt-8 max-w-[480px]">
-          <div className="flex overflow-hidden rounded-8 border border-border bg-surface focus-within:border-accent focus-within:shadow-[0_0_0_3px_rgba(139,92,246,0.15)]">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={handleInputChange}
-              placeholder="Cek ketersediaan nama subdomain..."
-              className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm font-mono text-fg outline-none placeholder:text-muted placeholder:font-body"
-              autoComplete="off"
-              spellCheck="false"
-              maxLength={63}
-              aria-label="Nama subdomain"
-            />
-            <span className="hidden items-center whitespace-nowrap px-2 font-mono text-xs text-muted sm:flex">
-              .lapak.click
-            </span>
-            <button
-              type="button"
-              onClick={() => {
-                if (state.status === "available") {
-                  handleClaimClick();
-                }
-              }}
-              disabled={state.status === "loading"}
-              className="bg-accent px-5 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-gl disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
-            >
-              {state.status === "loading" ? (
-                <Loader2 size={16} className="animate-spin" />
-              ) : state.status === "available" ? (
-                "Klaim Sekarang"
-              ) : (
-                <>
-                  <span className="hidden sm:inline">Cek Ketersediaan</span>
-                  <span className="inline sm:hidden">
-                    <Search size={16} />
-                  </span>
-                </>
-              )}
-            </button>
-          </div>
-
-          <div className="mt-3 min-h-[1.5rem] text-left text-sm">
-            {state.status === "validating" && inputValue.trim().length > 0 && (
-              <p className="text-red-400">
-                Subdomain hanya boleh berisi huruf kecil, angka, dan tanda hubung (-) (3-63 karakter).
-              </p>
-            )}
-
-            {state.status === "loading" && (
-              <div className="flex items-center gap-2 text-muted">
-                <span className="inline-block h-3 w-3 animate-pulse rounded-full bg-accent/50" />
-                <span>Memeriksa ketersediaan...</span>
-              </div>
-            )}
-
-            {state.status === "available" && (
-              <div className="space-y-2">
-                <p className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                  <CheckCircle size={16} className="shrink-0" />
-                  <span>Tersedia!</span>
-                </p>
-                <p className="font-mono text-sm text-fg-2">
-                  {trimmedInput}.lapak.click
-                </p>
-              </div>
-            )}
-
-            {state.status === "unavailable" && (
-              <p className="flex items-center gap-1.5 text-red-400 font-medium">
-                <XCircle size={16} className="shrink-0" />
-                <span>Sudah digunakan</span>
-              </p>
-            )}
-
-            {state.status === "error" && (
-              <p className="text-red-400 text-sm">
-                {state.message}
-              </p>
-            )}
-          </div>
-        </div>
-
-        <div className="mx-auto mt-8 grid max-w-[600px] grid-cols-1 gap-1 sm:grid-cols-3 sm:gap-2">
-          {[
-            { number: "2,847+", label: "Subdomain terdaftar" },
-            { number: "1,230+", label: "UMKM aktif" },
-            { number: "99.9%", label: "Uptime" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-8 border border-border bg-surface p-3 text-center"
-            >
-              <div className="font-display text-xl font-extrabold text-accent tabular-nums sm:text-2xl">
-                {stat.number}
-              </div>
-              <div className="mt-1 text-xs text-muted">{stat.label}</div>
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+          
+          {/* LEFT COLUMN: Copy & CTA */}
+          <div className="text-left">
+            <div className="inline-block mb-6 px-3 py-1.5 rounded-4 text-accent font-mono text-[0.75rem] uppercase tracking-[0.1em] border border-accent/30 bg-accent/5 opacity-0 animate-fade-in-up">
+              Gratis · 1 Menit · Sepuasnya
             </div>
-          ))}
+
+            <h1 className="font-display font-bold text-fg mb-5 text-[clamp(2.5rem,5vw,4.5rem)] tracking-[-0.03em] leading-[1.1] max-w-[600px] opacity-0 animate-fade-in-up-delay-1">
+              Bikin website UMKM tampil <span className="text-accent">profesional.</span>
+            </h1>
+
+            <p className="text-fg-2 max-w-[500px] mb-8 text-[clamp(1rem,1.5vw,1.25rem)] leading-relaxed opacity-0 animate-fade-in-up-delay-2">
+              Dapatkan subdomain <code className="font-mono text-accent bg-accent/10 px-1.5 py-0.5 rounded-4 text-[0.9em]">namausaha.lapak.click</code> gratis. Arahkan ke hosting favorit kamu — tanpa ribet, tanpa biaya tersembunyi.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 opacity-0 animate-fade-in-up-delay-3">
+              <Link
+                href="/register"
+                className="inline-flex items-center justify-center gap-2 rounded-4 font-body font-medium whitespace-nowrap transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg px-7 py-3.5 text-base bg-accent text-bg hover:bg-accent-gl hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] active:bg-accent-dim active:scale-95"
+              >
+                Klaim Sekarang
+                <ArrowRight size={18} />
+              </Link>
+              <Link
+                href="#fitur"
+                className="inline-flex items-center justify-center gap-2 rounded-4 font-body font-medium whitespace-nowrap transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg px-7 py-3.5 text-base bg-transparent text-fg hover:text-accent hover:bg-surface-2 active:bg-surface border border-border"
+              >
+                Pelajari Dulu
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Interactive Checker & Stats */}
+          <div className="w-full max-w-[540px] mx-auto lg:ml-auto opacity-0 animate-fade-in-up-delay-4">
+            
+            {/* Checker Card */}
+            <div className="rounded-8 border border-border bg-surface/50 backdrop-blur-md p-6 sm:p-8 shadow-2xl shadow-accent/5">
+              <h3 className="font-display font-semibold text-lg text-fg mb-4">
+                Cek Ketersediaan Subdomain
+              </h3>
+              
+              <div className="flex flex-col sm:flex-row overflow-hidden rounded-4 border border-border bg-bg focus-within:border-accent focus-within:ring-1 focus-within:ring-accent transition-all duration-200">
+                <div className="flex flex-1 items-center px-4 py-3 sm:py-0 min-h-[3.25rem]">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="namausaha"
+                    className="min-w-0 flex-1 bg-transparent text-base font-mono text-fg outline-none placeholder:text-muted/60"
+                    autoComplete="off"
+                    spellCheck="false"
+                    maxLength={63}
+                    aria-label="Nama subdomain"
+                  />
+                  <span className="hidden sm:inline-block ml-2 font-mono text-sm text-muted shrink-0">
+                    .lapak.click
+                  </span>
+                </div>
+                
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (state.status === "available") {
+                      handleClaimClick();
+                    }
+                  }}
+                  disabled={state.status === "loading"}
+                  className="bg-accent px-6 py-3 sm:py-0 min-h-[3.25rem] text-sm font-semibold text-bg transition-colors hover:bg-accent-gl disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center shrink-0 border-t sm:border-t-0 sm:border-l border-accent/20"
+                >
+                  {state.status === "loading" ? (
+                    <Loader2 size={18} className="animate-spin" />
+                  ) : state.status === "available" ? (
+                    "Klaim"
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Search size={16} />
+                      <span className="sm:hidden">Cek</span>
+                    </span>
+                  )}
+                </button>
+              </div>
+
+              {/* Status Message */}
+              <div className="mt-4 min-h-[2rem] text-sm">
+                {state.status === "validating" && inputValue.trim().length > 0 && (
+                  <p className="text-negative flex items-start gap-2">
+                    <XCircle size={16} className="shrink-0 mt-0.5" />
+                    <span>Hanya boleh huruf kecil, angka, dan tanda hubung (-). Maks 63 karakter.</span>
+                  </p>
+                )}
+
+                {state.status === "loading" && (
+                  <div className="flex items-center gap-2 text-muted">
+                    <span className="inline-block h-3 w-3 animate-pulse rounded-full bg-accent/50" />
+                    <span>Memeriksa ketersediaan...</span>
+                  </div>
+                )}
+
+                {state.status === "available" && (
+                  <div className="flex flex-col gap-1">
+                    <p className="flex items-center gap-1.5 text-positive font-medium">
+                      <CheckCircle size={16} className="shrink-0" />
+                      <span>Tersedia!</span>
+                    </p>
+                    <p className="font-mono text-sm text-fg-2 opacity-80">
+                      {trimmedInput}.lapak.click
+                    </p>
+                  </div>
+                )}
+
+                {state.status === "unavailable" && (
+                  <p className="flex items-center gap-1.5 text-negative font-medium">
+                    <XCircle size={16} className="shrink-0" />
+                    <span>Sudah digunakan oleh UMKM lain</span>
+                  </p>
+                )}
+
+                {state.status === "error" && (
+                  <p className="flex items-center gap-1.5 text-negative">
+                    <XCircle size={16} className="shrink-0" />
+                    <span>{state.message}</span>
+                  </p>
+                )}
+                
+                {state.status === "idle" && !inputValue && (
+                  <p className="text-muted/70 flex items-center gap-1.5">
+                    <ArrowRight size={14} className="shrink-0" />
+                    <span>Ketik nama usahamu tanpa spasi</span>
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* Stats Bar */}
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
+              {[
+                { number: "2.8k+", label: "Terdaftar" },
+                { number: "1.2k+", label: "UMKM Aktif" },
+                { number: "99.9%", label: "Uptime" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-8 border border-border/50 bg-surface/30 backdrop-blur-sm p-3 sm:p-4 text-center transition-colors hover:bg-surface/60"
+                >
+                  <div className="font-display text-lg sm:text-xl font-extrabold text-accent tabular-nums">
+                    {stat.number}
+                  </div>
+                  <div className="mt-1 text-[0.65rem] sm:text-xs text-muted uppercase tracking-wider font-semibold">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
